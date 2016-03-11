@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'name', 'email', 'password', 'city', 'state_id', 'phone', 'company_id',
+        'name', 'email', 'password', 'city', 'state_id', 'phone', 'company_id', 'active'
     ];
 
     /**
@@ -55,9 +55,5 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class);
-    }
-
-    public function imi(){
-        return $this->hasMany(Imi::class);
     }
 }

@@ -25,7 +25,19 @@ class Company extends Model
     	return $this->belongsTo(State::class);
     }
 
+    public function canvas(){
+        return $this->hasMany(Canvas::class);
+    }
+
     public function imi(){
         return $this->hasMany(Imi::class);
+    }
+
+    public function acap(){
+        return $this->hasMany(Acap::class);
+    }
+
+    public function icai(){
+        return $this->hasMany(Icai::class);
     }
 }

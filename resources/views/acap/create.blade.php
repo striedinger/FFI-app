@@ -4,16 +4,23 @@
 <div>
 	<div class="col-sm-12">
 		@if(Session::has('status'))
-		<div class="alert alert-success" align="center">
-			<h2>{{ Session::get('status') }}</h2>
-		</div>
-		@endif
+         <div class="alert alert-success" align="center">
+           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        		<span aria-hidden="true">&times;</span>
+    		</button>
+            <p>{{ Session::get('status') }}</p>
+        </div>
+        @endif
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				ACAP
 			</div>
 			<div class="panel-body">
 				<div class="col-sm-12 col-md-12">
+					<div class="form-group">
+					<label>Empresa</label>
+						<p><a href="{{ url('/companies/view') . '/' . $company->id }}">{{ $company->name }}</a></p>
+					</div>
 					<form method="POST">
 						<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 						<ul class="nav nav-tabs" id="myTab" role="tablist">

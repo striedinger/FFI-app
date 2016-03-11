@@ -4,7 +4,10 @@
 <div>
     @if(Session::has('status'))
     <div class="alert alert-success" align="center">
-        <h2>{{ Session::get('status') }}</h2>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p>{{ Session::get('status') }}</p>
     </div>
     @endif
     @if (count($users) > 0)

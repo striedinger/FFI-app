@@ -33,6 +33,8 @@
 
    <link rel="stylesheet" href="{{ URL::asset('assets/css/sweetalert2/sweetalert2.css') }}">
 
+   <link rel="stylesheet" href="{{ URL::asset('assets/css/datetimepicker/datetimepicker.css') }}">
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <style>
@@ -67,7 +69,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">FFI Caribe</a>
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ URL::asset('assets/img/FFI-Logo.png') }}" class="header-logo"></a>
             </div>
             <!-- /.navbar-header -->
 

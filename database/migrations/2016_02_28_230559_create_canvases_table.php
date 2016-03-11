@@ -14,7 +14,7 @@ class CreateCanvasesTable extends Migration
     {
         Schema::create('canvases', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('project_id');
+            $table->integer('company_id');
             $table->text('key_partners');
             $table->text('key_activities');
             $table->text('key_resources');
@@ -24,6 +24,7 @@ class CreateCanvasesTable extends Migration
             $table->text('customer_segments');
             $table->text('cost_structure');
             $table->text('revenue_streams');
+            $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -59,6 +59,9 @@ class UserController extends Controller
                 $user->phone = $request->phone;
                 $user->city = $request->city;
                 $user->state_id = $request->state;
+                if($request->has('active')){
+                    $user->active = $request->active;
+                }
                 $user->save();
                 $request->session()->flash('status', 'El usuario ha sido actualizado');
                 return redirect('/users/view/'.$user->id);

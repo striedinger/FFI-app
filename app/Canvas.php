@@ -12,7 +12,7 @@ class Canvas extends Model
 	protected $table = 'canvases';
 	protected $fillable = ['key_partners', 'key_activities', 'key_resources', 'value_propositions', 'customer_relationships', 'channels', 'customer_segments', 'cost_structure', 'revenue_streams'];
 
-	public function project(){
-		return $this->belongsTo(Project::class);
+	public function company(){
+		return $this->belongsTo(Company::class);
 	}
 }

@@ -4,15 +4,18 @@
 <div>
 	<div class="col-sm-offset-2 col-sm-8">
 		@if(Session::has('status'))
-            <div class="alert alert-success" align="center">
-                <h2>{{ Session::get('status') }}</h2>
-            </div>
+         <div class="alert alert-success" align="center">
+           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        		<span aria-hidden="true">&times;</span>
+    		</button>
+            <p>{{ Session::get('status') }}</p>
+        </div>
         @endif
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Proyecto
 				@can('update', $project)
-				<a href=" {{ url('/project/update') . '/' . $project->id }}" class="pull-right">Editar</a>
+				<a href=" {{ url('/projects/update') . '/' . $project->id }}" class="pull-right">Editar</a>
 				@endcan
 			</div>
 			<div class="panel-body">
@@ -38,30 +41,5 @@
 					</div>
 			</div>
 		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				Modelo Canvas de Negocio <a href="{{ url('canvas/create') . '/' . $project->id }}" class="pull-right"><i class="fa fa-plus"></i></a>
-			</div>
-			<div class="panel-body">
-				<div class="table-responsive">
-					@if(count($project->canvas)>0)
-					<table class="table table-striped project-table">
-						<thead>
-							<th>ID</th>
-							<th>Fecha de Modificacion</th>
-						</thead>
-						<tbody>
-							@foreach ($project->canvas as $canvas)
-							<tr>
-								<td class="table-text"><a href="{{ url('canvas/view') . '/' . $canvas->id }}">{{ $canvas->id }}</a></td>
-								<td class="table-text">{{ $canvas->updated_at }}</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-					@endif
-			</div>
-		</div>
-	</div>
 </div>
 @endsection

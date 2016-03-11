@@ -75,4 +75,26 @@ class ProjectController extends Controller
     	}
     }
 
+    public function update(Request $request, $id){
+        if($project = $this->projects->forId($id)){
+            $this->authorize('update', $project);
+            if($request->isMethod('post')){
+                $validator = $this->validate($request, [
+                    'name' => 'required|max:255',
+                    'description' => 'required'
+                ]);
+                $project->name = $request->name;
+                $project->description = $request->description;
+                $project->save();
+                $request->session()->flash('status', 'Su proyecto ha sido actualizado');
+                return redirect('/projects/view/' . $project->id);
+            }
+            return view('projects.update', [
+                'project' => $project
+            ]);
+        }else{
+            abort(404);
+        }
+    }
+
 }

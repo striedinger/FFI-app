@@ -7,25 +7,25 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\CanvasRepository;
-use App\Repositories\ProjectRepository;
+use App\Repositories\CompanyRepository;
 
 class CanvasController extends Controller
 {
     protected $canvas;
-    protected $project;
+    protected $company;
 
-    public function __construct(CanvasRepository $canvas, ProjectRepository $project){
+    public function __construct(CanvasRepository $canvas, CompanyRepository $company){
 
 		$this->middleware('auth');
 
 		$this->canvas = $canvas; 
 
-		$this->project = $project;
+		$this->company = $company;
 	}
 
 	public function create(Request $request, $id){
-		if($project = $this->project->forId($id)){
-			if($request->user()->id == $project->user_id){
+		if($company = $this->company->forId($id)){
+			if($request->user()->id == $company->user_id){
 				if($request->isMethod('post')){
     				$this->validate($request, [
     					'key_partners' => 'required',
@@ -38,7 +38,7 @@ class CanvasController extends Controller
                 		'cost_structure' => 'required',
                 		'revenue_streams' => 'required'
     				]); 
-    				$project->canvas()->create([
+    				$company->canvas()->create([
                 		'key_partners' => $request->key_partners,
                 		'key_activities' => $request->key_activities,
                 		'key_resources' => $request->key_resources,
@@ -50,9 +50,9 @@ class CanvasController extends Controller
                 		'revenue_streams' => $request->revenue_streams
             		]);
     				$request->session()->flash('status', 'Su canvas ha sido creado');
-    				return redirect('/project/update/' . $project->id);
+    				return redirect('/companies/view/' . $company->id);
     			}else{
-    				return view('canvases.create', []);
+    				return view('canvases.create', ['company' => $company]);
     			}
 			}else{
 				abort(403, 'Usuario no autorizado');

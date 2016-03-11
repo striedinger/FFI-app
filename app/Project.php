@@ -26,7 +26,4 @@ class Project extends Model
     	return $this->belongsTo(Term::class);
     }
 
-    public function canvas(){
-        return $this->hasMany(Canvas::class);
-    }
 }

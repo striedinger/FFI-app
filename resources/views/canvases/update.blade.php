@@ -4,9 +4,12 @@
 <div>
 	<div class="col-sm-offset-2 col-sm-8">
 		@if(Session::has('status'))
-            <div class="alert alert-success" align="center">
-                <h2>{{ Session::get('status') }}</h2>
-            </div>
+         <div class="alert alert-success" align="center">
+           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        		<span aria-hidden="true">&times;</span>
+    		</button>
+            <p>{{ Session::get('status') }}</p>
+        </div>
         @endif
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -16,8 +19,12 @@
 				<form method="POST">
 					<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 					<div class="form-group">
-						<label>Key Partners</label>
-						<textarea class="form-control" name="key_partners" placeholder="Key Partners">{{ $canvas->key_partners }}</textarea>
+						<label>Empresa</label>
+						<p><a href="{{ url('/companies/view') . '/' . $canvas->company_id }}">{{ $canvas->company->name }}</a></p>
+					</div>
+					<div class="form-group">
+						<label>Socios Clave</label>
+						<textarea class="form-control" name="key_partners" placeholder="Socios Clave">{{ $canvas->key_partners }}</textarea>
 						@if ($errors->has('key_partners'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('key_partners') }}</strong>
@@ -25,8 +32,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Key Activities</label>
-						<textarea class="form-control" name="key_activities" placeholder="Key Activities">{{ $canvas->key_activities }}</textarea>
+						<label>Actividades Clave</label>
+						<textarea class="form-control" name="key_activities" placeholder="Actividades Clave">{{ $canvas->key_activities }}</textarea>
 						@if ($errors->has('key_activities'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('key_activities') }}</strong>
@@ -34,8 +41,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Key Resources</label>
-						<textarea class="form-control" name="key_resources" placeholder="Key Resources">{{ $canvas->key_resources }}</textarea>
+						<label>Recursos Clave</label>
+						<textarea class="form-control" name="key_resources" placeholder="Recursos Clave">{{ $canvas->key_resources }}</textarea>
 						@if ($errors->has('key_resources'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('key_resources') }}</strong>
@@ -43,8 +50,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Value Propositions</label>
-						<textarea class="form-control" name="value_propositions" placeholder="Value Propositions">{{ $canvas->value_propositions }}</textarea>
+						<label>Propuestas de Valor</label>
+						<textarea class="form-control" name="value_propositions" placeholder="Propuestas de Valor">{{ $canvas->value_propositions }}</textarea>
 						@if ($errors->has('value_propositions'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('value_propositions') }}</strong>
@@ -52,8 +59,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Customer Relationships</label>
-						<textarea class="form-control" name="customer_relationships" placeholder="Customer Relationships">{{ $canvas->customer_relationships }}</textarea>
+						<label>Relaciones con Clientes</label>
+						<textarea class="form-control" name="customer_relationships" placeholder="Relaciones con Clientes">{{ $canvas->customer_relationships }}</textarea>
 						@if ($errors->has('customer_relationships'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('customer_relationships') }}</strong>
@@ -61,8 +68,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Channels</label>
-						<textarea class="form-control" name="channels" placeholder="Channels">{{ $canvas->channels }}</textarea>
+						<label>Canales</label>
+						<textarea class="form-control" name="channels" placeholder="Canales">{{ $canvas->channels }}</textarea>
 						@if ($errors->has('channels'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('channels') }}</strong>
@@ -70,8 +77,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Customer Segments</label>
-						<textarea class="form-control" name="customer_segments" placeholder="Customer Segments">{{ $canvas->customer_segments }}</textarea>
+						<label>Segmentos de Clientes</label>
+						<textarea class="form-control" name="customer_segments" placeholder="Segmentos de Clientes">{{ $canvas->customer_segments }}</textarea>
 						@if ($errors->has('customer_segments'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('customer_segments') }}</strong>
@@ -79,8 +86,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Cost Structure</label>
-						<textarea class="form-control" name="cost_structure" placeholder="Cost Structure">{{ $canvas->cost_structure }}</textarea>
+						<label>Estructura de Costos</label>
+						<textarea class="form-control" name="cost_structure" placeholder="Estructura de Costos">{{ $canvas->cost_structure }}</textarea>
 						@if ($errors->has('cost_structure'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('cost_structure') }}</strong>
@@ -88,8 +95,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Revenue Streams</label>
-						<textarea class="form-control" name="revenue_streams" placeholder="Revenue Streams">{{ $canvas->revenue_streams }}</textarea>
+						<label>Fuentes de Ingresos</label>
+						<textarea class="form-control" name="revenue_streams" placeholder="Fuentes de Ingresos">{{ $canvas->revenue_streams }}</textarea>
 						@if ($errors->has('revenue_streams'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('revenue_streams') }}</strong>

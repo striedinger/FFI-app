@@ -33,20 +33,20 @@ class DatabaseSeeder extends Seeder
 class RolesTableSeeder extends Seeder{
     public function run(){
         DB::table('roles')->truncate();
-        Role::create(['id' => 1, 'name' => 'Administrador', 'description' => 'Administrador de la plataforma', 'state_id' => 1, 'city' => 'Barranquilla']);
-        Role::create(['id' => 2, 'name' => 'Evaluador', 'description' => 'Evaluador de proyectos', 'state_id' => 1, 'city' => 'Barranquilla']);
-        Role::create(['id' => 3, 'name' => 'Consultor', 'description' => 'Consultor de proyectos', 'state_id' => 1, 'city' => 'Barranquilla']);
-        Role::create(['id' => 4, 'name' => 'Empresario', 'description' => 'Empresario usuario', 'state_id' => 1, 'city' => 'Barranquilla']);
+        Role::create(['id' => 1, 'name' => 'Administrador', 'description' => 'Administrador de la plataforma']);
+        Role::create(['id' => 2, 'name' => 'Evaluador', 'description' => 'Evaluador de proyectos']);
+        Role::create(['id' => 3, 'name' => 'Consultor', 'description' => 'Consultor de proyectos']);
+        Role::create(['id' => 4, 'name' => 'Empresario', 'description' => 'Empresario usuario']);
     }
 }
 
 class UsersTableSeeder extends Seeder{
     public function run(){
         DB::table('users')->truncate();
-        User::create(['name' => 'Administrador', 'email' => 'hugostriedinger@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 1, 'state_id' => 1, 'active' => true]);
-        User::create(['name' => 'Evaluador', 'email' => 'evaluador@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 2, 'state_id' => 1, 'active' => true]);
-        User::create(['name' => 'Consultor', 'email' => 'consultor@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 3, 'state_id' => 1, 'active' => true]);
-        User::create(['name' => 'Empresario', 'email' => 'empresario@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 4, 'state_id' => 1, 'active' => true]);
+        User::create(['name' => 'Administrador', 'email' => 'hugostriedinger@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 1, 'state_id' => 1, 'city' => 'Barranquilla', 'active' => true]);
+        User::create(['name' => 'Evaluador', 'email' => 'evaluador@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 2, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
+        User::create(['name' => 'Consultor', 'email' => 'consultor@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 3, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
+        User::create(['name' => 'Empresario', 'email' => 'empresario@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 4, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
     }
 }
 

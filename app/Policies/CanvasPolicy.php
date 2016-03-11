@@ -18,7 +18,7 @@ class CanvasPolicy
         if($user->isSuperAdmin()){
             return true;
         }else{
-            return $user->id == $canvas->project->user_id;
+            return $user->id == $canvas->company->user_id;
         }
      }
 
@@ -26,7 +26,7 @@ class CanvasPolicy
         if($user->isAdmin()){
             return true;
         }else{
-            return $user->id == $canvas->project->user_id;
+            return $user->id == $canvas->company->user_id;
         }
      }
 }

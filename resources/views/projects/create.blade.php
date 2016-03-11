@@ -4,9 +4,12 @@
 <div>
 	<div class="col-sm-offset-2 col-sm-8">
 		@if(Session::has('status'))
-            <div class="alert alert-success" align="center">
-                <h2>{{ Session::get('status') }}</h2>
-            </div>
+         <div class="alert alert-success" align="center">
+           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        		<span aria-hidden="true">&times;</span>
+    		</button>
+            <p>{{ Session::get('status') }}</p>
+        </div>
         @endif
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -52,7 +55,7 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-block">Crear Proyecto</button>
+						<button type="submit" class="btn btn-primary btn-block">Registrar Proyecto</button>
 					</div>
 				</form>
 			</div>

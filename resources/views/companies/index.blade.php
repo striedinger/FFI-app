@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div >
+<div>
     @if(Session::has('status'))
     <div class="alert alert-success" align="center">
-        <h2>{{ Session::get('status') }}</h2>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p>{{ Session::get('status') }}</p>
     </div>
     @endif
     <div class="panel panel-default">
@@ -26,7 +29,7 @@
                             <td class="table-text"><a href="{{ url('companies/view') . '/' . $company->id }}">{{ $company->name }}</a></td>
                             <td class="table-text">{{$company->city}}</td>
                             <td class="table-text">{{$company->state->name}}</td>
-                            <td class="table-text">{{$company->user->name}}</td>
+                            <td class="table-text"><a href="{{ url('users/view') . '/' . $company->user->id }}">{{$company->user->name}}</a></td>
                         </tr>
                         @endforeach
                     </tbody>

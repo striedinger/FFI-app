@@ -4,15 +4,22 @@
 <div>
 	<div class="col-sm-12">
 		@if(Session::has('status'))
-		<div class="alert alert-success" align="center">
-			<h2>{{ Session::get('status') }}</h2>
-		</div>
-		@endif
+         <div class="alert alert-success" align="center">
+           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        		<span aria-hidden="true">&times;</span>
+    		</button>
+            <p>{{ Session::get('status') }}</p>
+        </div>
+        @endif
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Instrumento de Medicion de la Innovacón
 			</div>
 			<div class="panel-body">
+				<div class="form-group">
+					<label>Empresa</label>
+						<p><a href="{{ url('/companies/view') . '/' . $company->id }}">{{ $company->name }}</a></p>
+				</div>
 				<div class="col-sm-12">
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<canvas id="myChart" width="300" height="300"></canvas>

@@ -23,12 +23,16 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () {
-    	return view('welcome');
-	});
+    Route::get('/', 'DashboardController@index');
 
 	Route::get('/home', function () {
     	return view('home');
+	});
+
+	Route::get('/test', function(){
+		for($i=1;$i<=115;$i++){
+			echo "'p" . $i . "', ";
+		}
 	});
 
 	Route::auth();
@@ -67,6 +71,10 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/projects/view/{id}', 'ProjectController@view');
 
+	Route::get('/projects/update/{id}', 'ProjectController@update');
+
+	Route::post('/projects/update/{id}', 'ProjectController@update');
+
 	//Canvases
 
 	Route::get('/canvas/create/{id}', 'CanvasController@create');
@@ -83,13 +91,31 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/imi/create/{id}', 'ImiController@create');
 
+	Route::post('/imi/create/{id}', 'ImiController@create');
+
+	Route::get('/imi/update/{id}', 'ImiController@update');
+
+	Route::post('/imi/update/{id}', 'ImiController@update');
+
 	//ACAP
 
 	Route::get('/acap/create/{id}', 'AcapController@create');
 
+	Route::post('/acap/create/{id}', 'AcapController@create');
+
+	Route::get('/acap/update/{id}', 'AcapController@update');
+
+	Route::post('/acap/update/{id}', 'AcapController@update');
+
 	//ICAI
 
 	Route::get('/icai/create/{id}', 'IcaiController@create');
+
+	Route::post('/icai/create/{id}', 'IcaiController@create');
+
+	Route::get('/icai/update/{id}', 'IcaiController@update');
+
+	Route::post('/icai/update/{id}', 'IcaiController@update');
 
 });
 

@@ -3,9 +3,22 @@
 @section('content')
 <div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
+            <a href="http://www.fficaribe.com">
+                <img src="{{ URL::asset('assets/img/Logo-FFI-alt.png') }}" class="main-logo">
+            </a>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+            @if(Session::has('status'))
+            <div class="alert alert-success" align="center">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p>{{ Session::get('status') }}</p>
+            </div>
+            @endif
             <div class="panel panel-default">
-                <div class="panel-heading">Registrar</div>
+                <div class="panel-heading">Registrar <span class="pull-right"><a href="{{ url('/login') }}">Inicia Sesion</a></span></div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}

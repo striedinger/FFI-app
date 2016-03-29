@@ -2,15 +2,7 @@
 
 @section('content')
 <div>
-	<div class="col-sm-offset-2 col-sm-8">
-		@if(Session::has('status'))
-         <div class="alert alert-success" align="center">
-           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        		<span aria-hidden="true">&times;</span>
-    		</button>
-            <p>{{ Session::get('status') }}</p>
-        </div>
-        @endif
+	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Usuario
@@ -38,6 +30,10 @@
 				<div class="form-group">
 					<label>Ciudad</label>
 					<p>{{$user->city}}</p>
+				</div>
+				<div class="form-group">
+					<label>Rol</label>
+					<p>{{ $user->role->name }}</p>
 				</div>
 			</div>
 		</div>

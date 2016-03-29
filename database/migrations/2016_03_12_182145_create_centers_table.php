@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectsTable extends Migration
+class CreateCentersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,14 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('centers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('company_id');
-            $table->integer('term_id');
+            $table->integer('state_id');
             $table->string('name');
-            $table->text('description');
-            $table->string('amount');
-            $table->integer('state');
-            $table->boolean('active')->default(true);
+            $table->string('group_name')->nullable();
+            $table->string('city');
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +32,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('projects');
+        Schema::drop('centers');
     }
 }

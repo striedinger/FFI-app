@@ -2,15 +2,7 @@
 
 @section('content')
 <div>
-	<div class="col-sm-offset-2 col-sm-8">
-		@if(Session::has('status'))
-         <div class="alert alert-success" align="center">
-           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        		<span aria-hidden="true">&times;</span>
-    		</button>
-            <p>{{ Session::get('status') }}</p>
-        </div>
-        @endif
+	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Empresa
@@ -41,6 +33,15 @@
 						@if ($errors->has('description'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('description') }}</strong>
+                            </span>
+                        @endif
+					</div>
+					<div class="form-group">
+						<label>Monto Solicitado</label>
+						<input type="text" class="form-control" name="amount" placeholder="Monto Solicitado" value="{{ $project->amount }}">
+						@if ($errors->has('amount'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('amount') }}</strong>
                             </span>
                         @endif
 					</div>

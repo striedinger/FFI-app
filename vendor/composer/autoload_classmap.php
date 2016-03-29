@@ -11,6 +11,8 @@ return array(
     'CreateCompaniesTable' => $baseDir . '/database/migrations/2016_01_18_224156_create_companies_table.php',
     'CreateIcaisTable' => $baseDir . '/database/migrations/2016_03_10_223716_create_icais_table.php',
     'CreateImisTable' => $baseDir . '/database/migrations/2016_02_26_202104_create_imis_table.php',
+    'CreateLinecentersTable' => $baseDir . '/database/migrations/2016_03_12_182145_create_linecenters_table.php',
+    'CreateLinesTable' => $baseDir . '/database/migrations/2016_03_12_182121_create_lines_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProjectsTable' => $baseDir . '/database/migrations/2016_01_18_223939_create_projects_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2016_01_18_223748_create_roles_table.php',

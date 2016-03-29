@@ -2,15 +2,7 @@
 
 @section('content')
 <div>
-	<div class="col-sm-offset-2 col-sm-8">
-		@if(Session::has('status'))
-         <div class="alert alert-success" align="center">
-           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        		<span aria-hidden="true">&times;</span>
-    		</button>
-            <p>{{ Session::get('status') }}</p>
-        </div>
-        @endif
+	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Registrar Empresa
@@ -37,8 +29,8 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Descripcion</label>
-						<textarea class="form-control" name="description" placeholder="Descripcion">{{ old('description') }}</textarea>
+						<label>Actividad y Sector Economico</label>
+						<textarea class="form-control" name="description" placeholder="Actividad y Sector Economico">{{ old('description') }}</textarea>
 						@if ($errors->has('description'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('description') }}</strong>
@@ -60,7 +52,7 @@
 					</div>
 					<div class="form-group">
 						<label>Direccion</label>
-						<input type="text" class="form-control" name="address" placeholder="Address" value="{{ old('address') }}">
+						<input type="text" class="form-control" name="address" placeholder="Direccion" value="{{ old('address') }}">
 						@if ($errors->has('address'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('address') }}</strong>

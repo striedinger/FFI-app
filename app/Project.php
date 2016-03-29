@@ -11,7 +11,7 @@ class Project extends Model
 
 	protected $dates = ['deleted_at'];
 
-    protected $fillable = ['name', 'description', 'company_id', 'term_id', 'active'];	
+    protected $fillable = ['name', 'description', 'amount', 'company_id', 'term_id', 'active'];	
 
 
     public function user(){

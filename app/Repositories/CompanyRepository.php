@@ -12,6 +12,10 @@ class CompanyRepository
         return Company::paginate(100);
     }
 
+    public function countAll(){
+        return Company::count();
+    }
+
     public function forId($id){
         return Company::where(['id' => $id])->first();
     }

@@ -2,15 +2,7 @@
 
 @section('content')
 <div>
-	<div class="col-sm-12">
-		@if(Session::has('status'))
-         <div class="alert alert-success" align="center">
-           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        		<span aria-hidden="true">&times;</span>
-    		</button>
-            <p>{{ Session::get('status') }}</p>
-        </div>
-        @endif
+	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Instrumento de Medicion de la Innovacón

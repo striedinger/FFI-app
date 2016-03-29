@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'name', 'email', 'password', 'city', 'state_id', 'phone', 'company_id', 'active'
+        'name', 'email', 'password', 'city', 'state_id', 'phone', 'company_id', 'active', 'role_id'
     ];
 
     /**
@@ -34,7 +34,7 @@ class User extends Authenticatable
     }
 
     public function isAdmin(){
-        return ($this->hasRole("1") || $this->hasRole("2") || $this->hasRole("3"));
+        return ($this->hasRole("1") || $this->hasRole("2") || $this->hasRole("3") || $this->hasRole("4"));
     }
 
     public function isSuperAdmin(){

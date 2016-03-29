@@ -2,15 +2,7 @@
 
 @section('content')
 <div>
-	<div class="col-sm-offset-2 col-sm-8">
-		@if(Session::has('status'))
-         <div class="alert alert-success" align="center">
-           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        		<span aria-hidden="true">&times;</span>
-    		</button>
-            <p>{{ Session::get('status') }}</p>
-        </div>
-        @endif
+	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Usuario
@@ -60,6 +52,10 @@
 							<option value="0" @if($user->active==0) echo selected @endif>No</option>
 							<option value="1" @if($user->active==1) echo selected @endif>Si</option>
 						</select>
+					</div>
+					<div class="form-group">
+						<label>Rol</label>
+						{{ Form::select('role_id', $roles, $user->role_id, ['class' => 'form-control']) }}
 					</div>
 					@endif
 					<div class="form-group">

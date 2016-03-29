@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Be right back.</title>
+        <title>FFI Caribe - En mantenimiento</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -14,7 +14,7 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #B0BEC5;
+                color: black;
                 display: table;
                 font-weight: 100;
                 font-family: 'Lato';
@@ -40,7 +40,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">Ya volvemos.</div>
+                <p>Estamos en mantenimiento, intenta de nuevo mas tarde.</p>
             </div>
         </div>
     </body>

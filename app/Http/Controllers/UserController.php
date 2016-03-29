@@ -11,6 +11,8 @@ use App\Repositories\UserRepository;
 
 use App\Repositories\StateRepository;
 
+use App\Role;
+
 class UserController extends Controller
 {
 
@@ -59,17 +61,22 @@ class UserController extends Controller
                 $user->phone = $request->phone;
                 $user->city = $request->city;
                 $user->state_id = $request->state;
-                if($request->has('active')){
+                if($request->has('active') && $request->user()->isSuperAdmin()){
                     $user->active = $request->active;
+                }
+                if($request->has('role_id') && $request->user()->isSuperAdmin()){
+                    $user->role_id = $request->role_id;
                 }
                 $user->save();
                 $request->session()->flash('status', 'El usuario ha sido actualizado');
                 return redirect('/users/view/'.$user->id);
             }
             $states = $this->states->all();
+            $roles = Role::lists('name', 'id');
             return view('users.update', [
                 'user' => $user,
                 'states' => $states,
+                'roles' => $roles
             ]);
         }else{
             abort(404);

@@ -24,16 +24,20 @@
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'DashboardController@index');
-
-	Route::get('/home', function () {
-    	return view('home');
-	});
-
-	Route::get('/test', function(){
-		for($i=1;$i<=115;$i++){
-			echo "'p" . $i . "', ";
+    
+	/*Route::get('/test', function(){
+		$id = "gomezsoto@gmail.com";
+		$emails = file_get_contents(storage_path('ffiemails.txt'));
+		$emails = explode(", ", $emails);
+		if(in_array($id, $emails)){
+			echo "Match found";
+		}else{
+			echo "Not found..";
 		}
-	});
+		foreach($emails as $email){
+			echo strtolower($email) . "<br>";
+		}
+	});*/
 
 	Route::auth();
 
@@ -99,13 +103,13 @@ Route::group(['middleware' => ['web']], function () {
 
 	//ACAP
 
-	Route::get('/acap/create/{id}', 'AcapController@create');
+	/*Route::get('/acap/create/{id}', 'AcapController@create');
 
 	Route::post('/acap/create/{id}', 'AcapController@create');
 
 	Route::get('/acap/update/{id}', 'AcapController@update');
 
-	Route::post('/acap/update/{id}', 'AcapController@update');
+	Route::post('/acap/update/{id}', 'AcapController@update');*/
 
 	//ICAI
 
@@ -119,7 +123,7 @@ Route::group(['middleware' => ['web']], function () {
 
 });
 
-Route::group(array('prefix' => 'api/v1', 'middleware' => ['cors']), function(){
+/*Route::group(array('prefix' => 'api/v1', 'middleware' => ['cors']), function(){
 	Route::get('/imi/{id}', 'APIController@getImi');
 	Route::post('/imi/{id}', 'APIController@storeImi');
-});
+});*/

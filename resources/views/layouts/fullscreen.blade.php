@@ -50,7 +50,7 @@
 
 <body>
 
-    <div id="wrapper" style="padding-top:20px">
+    <div id="wrapper" style="padding-top:">
         @yield('content')
     </div>
     <!-- /#wrapper -->

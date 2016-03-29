@@ -87,3 +87,7 @@
   width:auto;
   height:100%;
 }
+
+textarea{
+  resize: vertical;
+}

@@ -24,7 +24,7 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Name</label>
+                            <label class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Estado</label>
+                            <label class="col-md-4 control-label">Departamento</label>
                             <div class="col-md-6">
                                 {{ Form::select('state', $states, null, ['class' => 'form-control']) }}
                             </div>

@@ -19,7 +19,7 @@ class UserPolicy
     }
 
     public function update(User $user1, User $user2){
-        if($user1->isAdmin()){
+        if($user1->isSuperAdmin()){
             return true;
         }else{
             return $user1->id == $user2->id;

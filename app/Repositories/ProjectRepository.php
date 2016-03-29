@@ -12,6 +12,10 @@ class ProjectRepository
 		return Project::paginate(100);
 	}
 
+    public function countAll(){
+        return Project::count();
+    }
+
     public function forUser(User $user)
     {
         return Project::where('user_id', $user->id)->paginate(100);

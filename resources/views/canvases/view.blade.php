@@ -33,14 +33,6 @@
 </style>
 <div id="canvasContainer">
 	<div class="col-sm-12">
-		@if(Session::has('status'))
-         <div class="alert alert-success" align="center">
-           	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        		<span aria-hidden="true">&times;</span>
-    		</button>
-            <p>{{ Session::get('status') }}</p>
-        </div>
-        @endif
 		<p><strong>Empresa: </strong><a href="{{ url('/companies/view') . '/' . $canvas->company_id }}">{{ $canvas->company->name }}</a>
 		@can('update', $canvas)
 			<a href=" {{ url('/canvas/update') . '/' . $canvas->id }}" class="pull-right">Editar</a>

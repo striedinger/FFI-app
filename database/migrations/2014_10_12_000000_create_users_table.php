@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('city');
             $table->integer('state_id');
-            $table->integer('role_id')->default(4);
+            $table->integer('role_id')->default(5);
             $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();

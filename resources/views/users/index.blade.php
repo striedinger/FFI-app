@@ -2,14 +2,6 @@
 
 @section('content')
 <div>
-    @if(Session::has('status'))
-    <div class="alert alert-success" align="center">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <p>{{ Session::get('status') }}</p>
-    </div>
-    @endif
     @if (count($users) > 0)
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -25,6 +17,7 @@
                         <th>Telefono</th>
                         <th>Ciudad</th>
                         <th>Departamento</th>
+                        <th>Rol</th>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
@@ -34,6 +27,7 @@
                             <td class="table-text">{{$user->phone}}</td>
                             <td class="table-text">{{ $user->city }}</td>
                             <td class="table-text">{{ $user->state->name }}</td>
+                            <td class="table-text">{{ $user->role->name }}</td>
                         </tr>
                         @endforeach
                     </tbody>

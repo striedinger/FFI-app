@@ -2,19 +2,12 @@
 
 @section('content')
 <div>
-    @if(Session::has('status'))
-    <div class="alert alert-success" align="center">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <p>{{ Session::get('status') }}</p>
-    </div>
-    @endif
     <div class="panel panel-default">
         <div class="panel-heading">
             Empresas <a href="{{ url('companies/create') }}" class="pull-right"><i class="fa fa-plus"></i></a>
         </div>
         <div class="panel-body">
+            @if (count($companies) > 0)
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -35,11 +28,11 @@
                     </tbody>
                 </table>
             </div>
+            @endif
         </div>
     </div>
     <div align="center">
         {{ $companies->render() }}
     </div>
-</div>
 </div>
 @endsection

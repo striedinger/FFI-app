@@ -56,17 +56,19 @@ class ProjectController extends Controller
     		$this->validate($request, [
     			'name' => 'required|max:255',
                 'description' => 'required',
+                'amount' => 'required',
                 'term' => 'required',
                 'company' => 'required'
     		]);
     		$request->user()->projects()->create([
                 'name' => $request->name,
                 'description' => $request->description,
+                'amount' => $request->amount,
                 'term_id' => $request->term,
                 'company_id' => $request->company,
                 'active' => true
             ]);
-    		$request->session()->flash('status', 'Su proyecto ha sido creado');
+    		$request->session()->flash('status', 'Su proyecto ha sido registrado');
     		return redirect('/projects');
     	}else{
     		$terms = $this->terms->all();
@@ -81,10 +83,12 @@ class ProjectController extends Controller
             if($request->isMethod('post')){
                 $validator = $this->validate($request, [
                     'name' => 'required|max:255',
-                    'description' => 'required'
+                    'description' => 'required',
+                    'amount' => 'required'
                 ]);
                 $project->name = $request->name;
                 $project->description = $request->description;
+                $project->amount = $request->amount;
                 $project->save();
                 $request->session()->flash('status', 'Su proyecto ha sido actualizado');
                 return redirect('/projects/view/' . $project->id);

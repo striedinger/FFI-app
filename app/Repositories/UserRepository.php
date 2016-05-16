@@ -10,8 +10,12 @@ class UserRepository
         return User::paginate(100);
     }
 
+    public function assistants(){
+    	return User::where(['role_id' => 2, 'active' => true])->lists('name', 'id');
+    }
+
     public function countAll(){
-    	return User::where(['role_id' => 5])->count();
+    	return User::where(['role_id' => 5, 'active' => true])->count();
     }
 
     public function forId($id){

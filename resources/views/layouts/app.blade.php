@@ -105,8 +105,7 @@
                         <li>
                             <a href="{{ url('/companies') }}"><i class="fa fa-building fa-fw"></i> Empresas</a>
                         </li>
-                        {{--
-                        <li>
+                        {{--<li>
                             <a href="{{ url('/projects') }}"><i class="fa fa-book fa-fw"></i> Proyectos</a>
                         </li>--}}
                     </ul>
@@ -136,6 +135,10 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment-with-locales.min.js"></script>
+
+
+    <script src="{{ URL::asset('assets/js/datetimepicker/datetimepicker.min.js') }}"></script>
 
     <script src="{{ URL::asset('assets/js/metisMenu/metisMenu.min.js') }}"></script>
 
@@ -148,6 +151,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="{{ URL::asset('assets/js/sb-admin-2.js') }}"></script>
 
+    <script type="text/javascript">
+        
+    </script>
 </body>
 
 </html>

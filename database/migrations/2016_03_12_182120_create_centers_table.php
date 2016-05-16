@@ -14,7 +14,7 @@ class CreateCentersTable extends Migration
     {
         Schema::create('centers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('state_id');
+            $table->integer('state_id')->unsigned();
             $table->string('name');
             $table->string('group_name')->nullable();
             $table->string('city');
@@ -22,6 +22,8 @@ class CreateCentersTable extends Migration
             $table->string('phone');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('state_id')->references('id')->on('states');
         });
     }
 
@@ -32,6 +34,8 @@ class CreateCentersTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET foreign_key_checks = 0');
         Schema::drop('centers');
+        DB::statement('SET foreign_key_checks = 1');
     }
 }

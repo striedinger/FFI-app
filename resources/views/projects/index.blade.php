@@ -7,6 +7,9 @@
             Proyectos <a href="{{ url('projects/create') }}" class="pull-right"><i class="fa fa-plus"></i></a>
         </div>
         <div class="panel-body">
+            @if (count($projects)==0)
+            <p>No hay proyectos registrados.</p>
+            @endif
             @if (count($projects) > 0)
             <div class="table-responsive">
                 <table class="table table-striped">

@@ -67,7 +67,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	//Projects
 
-	Route::get('/projects', 'ProjectController@index');
+	/*Route::get('/projects', 'ProjectController@index');
 
 	Route::get('/projects/create', 'ProjectController@create');
 
@@ -77,7 +77,27 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/projects/update/{id}', 'ProjectController@update');
 
-	Route::post('/projects/update/{id}', 'ProjectController@update');
+	Route::post('/projects/update/{id}', 'ProjectController@update');*/
+
+	//Project Comments
+
+	/*Route::post('projects/comment/{id}', 'ProjectCommentController@create');
+
+	Route::delete('projects/comment/{id}', 'ProjectCommentController@destroy');*/
+
+	//Consultations
+
+	/*Route::get('consultations/view/{id}', 'ConsultationController@view');
+
+	Route::get('/consultations', 'ConsultationController@index');
+
+	Route::get('/consultations/create', 'ConsultationController@create');
+
+	Route::post('/consultations/create', 'ConsultationController@create');
+
+	Route::get('/consultations/update/{id}', 'ConsultationController@update');
+
+	Route::post('/consultations/update/{id}', 'ConsultationController@update');*/
 
 	//Canvases
 
@@ -122,8 +142,3 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/icai/update/{id}', 'IcaiController@update');
 
 });
-
-/*Route::group(array('prefix' => 'api/v1', 'middleware' => ['cors']), function(){
-	Route::get('/imi/{id}', 'APIController@getImi');
-	Route::post('/imi/{id}', 'APIController@storeImi');
-});*/

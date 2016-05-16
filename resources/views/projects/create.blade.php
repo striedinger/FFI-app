@@ -12,7 +12,7 @@
 					<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 					<div class="form-group">
 						<label>Nombre</label>
-						<input type="text" class="form-control" name="name" placeholder="Nombre" value="{{ old('name') }}">
+						<input type="text" class="form-control" name="name" placeholder="Nombre del proyecto" value="{{ old('name') }}">
 						@if ($errors->has('name'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('name') }}</strong>
@@ -21,7 +21,7 @@
 					</div>
 					<div class="form-group">
 						<label>Descripcion</label>
-						<textarea class="form-control" name="description" placeholder="Descripcion">{{ old('description') }}</textarea>
+						<textarea class="form-control" name="description" placeholder="Descripcion corta">{{ old('description') }}</textarea>
 						@if ($errors->has('description'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('description') }}</strong>
@@ -30,7 +30,11 @@
 					</div>
 					<div class="form-group">
 						<label>Monto Solicitado</label>
-						<input type="text" class="form-control" name="amount" placeholder="Monto Solicitado" value="{{ old('amount') }}">
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<input type="text" class="form-control" name="amount" placeholder="Monto Solicitado" value="{{ old('amount') }}">
+							<span class="input-group-addon">COP</span>
+						</div>
 						@if ($errors->has('amount'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('amount') }}</strong>

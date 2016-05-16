@@ -26,4 +26,8 @@ class Project extends Model
     	return $this->belongsTo(Term::class);
     }
 
+    public function comments(){
+        return $this->hasMany(ProjectComment::class)->orderBy('created_at', 'desc');
+    }
+
 }

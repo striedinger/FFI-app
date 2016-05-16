@@ -15,12 +15,12 @@ return [
 
     'accepted'             => ':attribute debe ser aceptado.',
     'active_url'           => ':attribute no es una URL válida.',
-    'after'                => ':attribute debe ser una fecha posterior a :date.',
+    'after'                => 'debe ser una fecha posterior.',
     'alpha'                => ':attribute solo debe contener letras.',
     'alpha_dash'           => ':attribute solo debe contener letras, números y guiones.',
     'alpha_num'            => ':attribute solo debe contener letras y números.',
     'array'                => ':attribute debe ser un conjunto.',
-    'before'               => ':attribute debe ser una fecha anterior a :date.',
+    'before'               => 'debe ser una fecha anterior.',
     'between'              => [
         'numeric' => ':attribute tiene que estar entre :min - :max.',
         'file'    => ':attribute debe pesar entre :min - :max kilobytes.',

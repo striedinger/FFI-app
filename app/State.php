@@ -25,4 +25,8 @@ class State extends Model
     public function centers(){
         return $this->hasMany(Center::class);
     }
+
+    public function consultations(){
+        return $this->hasMany(Consultstion::class);
+    }
 }

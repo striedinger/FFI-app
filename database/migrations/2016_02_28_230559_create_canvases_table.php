@@ -14,7 +14,7 @@ class CreateCanvasesTable extends Migration
     {
         Schema::create('canvases', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('company_id');
+            $table->integer('company_id')->unsigned();
             $table->text('key_partners');
             $table->text('key_activities');
             $table->text('key_resources');
@@ -27,6 +27,8 @@ class CreateCanvasesTable extends Migration
             $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 
@@ -37,6 +39,8 @@ class CreateCanvasesTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET foreign_key_checks = 0');
         Schema::drop('canvases');
+        DB::statement('SET foreign_key_checks = 1');
     }
 }

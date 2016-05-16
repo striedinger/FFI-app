@@ -40,6 +40,11 @@
 					<div class="form-group">
 						<label>Departamento</label>
 						{{ Form::select('state', $states, null, ['class' => 'form-control']) }}
+						@if ($errors->has('state'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('state') }}</strong>
+                            </span>
+                        @endif
 					</div>
 					<div class="form-group">
 						<label>Ciudad</label>

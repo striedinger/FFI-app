@@ -14,7 +14,7 @@ class CreateImisTable extends Migration
     {
         Schema::create('imis', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('company_id');
+            $table->integer('company_id')->unsigned();
             for($i=1;$i<=20;$i++){
                 $name = 'p' . $i;
                 $table->integer($name)->nullable();
@@ -22,6 +22,8 @@ class CreateImisTable extends Migration
             $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 
@@ -32,6 +34,8 @@ class CreateImisTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET foreign_key_checks = 0');
         Schema::drop('imis');
+        DB::statement('SET foreign_key_checks = 1');
     }
 }

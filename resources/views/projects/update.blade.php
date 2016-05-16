@@ -38,7 +38,11 @@
 					</div>
 					<div class="form-group">
 						<label>Monto Solicitado</label>
-						<input type="text" class="form-control" name="amount" placeholder="Monto Solicitado" value="{{ $project->amount }}">
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<input type="text" class="form-control" name="amount" placeholder="Monto Solicitado" value="{{ $project->amount }}">
+							<span class="input-group-addon">COP</span>
+						</div>
 						@if ($errors->has('amount'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('amount') }}</strong>

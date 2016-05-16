@@ -4,7 +4,7 @@
 <div>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">ICAI</div>
+            <div class="panel-heading">ICAI - <a href="{{ url('/companies/view') . '/' . $icai->company_id }}">{{ $icai->company->name }}</a></div>
             <div class="panel-body">
                 <form method="POST">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />

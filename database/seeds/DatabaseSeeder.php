@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
 class RolesTableSeeder extends Seeder{
     public function run(){
-        DB::table('roles')->truncate();
+        DB::table('roles')->delete();
         Role::create(['id' => 1, 'name' => 'Administrador', 'description' => 'Administrador de la plataforma']);
         Role::create(['id' => 2, 'name' => 'Asistente', 'description' => 'Asistente del programa']);
         Role::create(['id' => 3, 'name' => 'Evaluador', 'description' => 'Evaluador de proyectos']);
@@ -51,18 +51,18 @@ class RolesTableSeeder extends Seeder{
 
 class UsersTableSeeder extends Seeder{
     public function run(){
-        DB::table('users')->truncate();
+        DB::table('users')->delete();
         User::create(['name' => 'Administrador', 'email' => 'striedingerh@uninorte.edu.co', 'password' => Hash::make('mcr4life'), 'role_id' => 1, 'state_id' => 1, 'city' => 'Barranquilla', 'active' => true]);
-        /*User::create(['name' => 'Asistente', 'email' => 'asistente@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 2, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
+        User::create(['name' => 'Asistente', 'email' => 'asistente@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 2, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
         User::create(['name' => 'Evaluador', 'email' => 'evaluador@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 3, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
         User::create(['name' => 'Consultor', 'email' => 'consultor@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 4, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
-        User::create(['name' => 'Empresario', 'email' => 'empresario@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 5, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);*/
+        User::create(['name' => 'Empresario', 'email' => 'empresario@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 5, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
     }
 }
 
 class StatesTableSeeder extends Seeder{
     public function run(){
-        DB::table('states')->truncate();
+        DB::table('states')->delete();
         State::create(['id' => 1, 'name' => 'Atlántico', 'active' => true]);
         State::create(['id' => 2, 'name' => 'Bolívar', 'active' => true]);
         State::create(['id' => 3, 'name' => 'Magdalena', 'active' => true]);
@@ -76,14 +76,14 @@ class StatesTableSeeder extends Seeder{
 
 class TermsTableSeeder extends Seeder{
     public function run(){
-        DB::table('terms')->truncate();
+        DB::table('terms')->delete();
         Term::create(['name' => '2016-1', 'active' => true]);
     }
 }
 
 class CentersTableSeeder extends Seeder{
     public function run(){
-        DB::table('centers')->truncate();
+        DB::table('centers')->delete();
         //Atlantico
         Center::create(['id' => 1, 'name' => 'CEDAGRO', 'group_name' => 'GRUPO DE INVESTIGACIÓN PARA EL MEJORAMIENTO DE LA PRODUCCION PRIMARIA, AGROINDUSTRIA Y MEDIO AMBIENTE', 'state_id' => 1]);
         Center::create(['id' => 2, 'name' => 'CENTRO DE COMERCIO Y SERVICIOS GRUPO DE INVESTIGACIÓN', 'group_name' => 'ARCADIA', 'state_id' => 1]);
@@ -111,7 +111,7 @@ class CentersTableSeeder extends Seeder{
 
 class LinesTableSeeder extends Seeder{
     public function run(){
-        DB::table('lines')->truncate();
+        DB::table('lines')->delete();
         //Atlantico
         Line::create(['id' => 1, 'name' => 'Producción primaria', 'center_id' => 1]);
         Line::create(['id' => 2, 'name' => 'Agroindustria', 'center_id' => 1]);

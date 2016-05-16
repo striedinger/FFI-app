@@ -7,6 +7,9 @@
             Empresas <a href="{{ url('companies/create') }}" class="pull-right"><i class="fa fa-plus"></i></a>
         </div>
         <div class="panel-body">
+            @if (count($companies)==0)
+            <p>No hay empresas registradas.</p>
+            @endif
             @if (count($companies) > 0)
             <div class="table-responsive">
                 <table class="table table-striped">

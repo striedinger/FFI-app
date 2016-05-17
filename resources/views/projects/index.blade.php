@@ -11,6 +11,16 @@
             <p>No hay proyectos registrados.</p>
             @endif
             @if (count($projects) > 0)
+            {!! Form::open(['action' => array('ProjectController@search'), 'method' => 'get']) !!}
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar..." name="q">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            {!! Form::close() !!}
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>

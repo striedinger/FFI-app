@@ -60,28 +60,9 @@ trait RegistersUsers
             );
         }
 
-        $user = $this->create($request->all());
+        Auth::guard($this->getGuard())->login($this->create($request->all()));
 
-        if($emails = file_get_contents(storage_path('ffiemails.txt'))){
-            $emails = strtolower($emails);
-            $emails = explode(", ", $emails);
-            if(in_array(strtolower($request->email), $emails)){
-                $user->active = true;
-                $user->save();
-            }
-        }
-
-        if($user->active){
-            $request->session()->flash('status', 'Su cuenta ha sido creada, puede iniciar sesión con el email ' . $user->email);
-        }else{
-            $request->session()->flash('status', 'Su cuenta ha sido creada, pero su email ' . $user->email . ' no se encuentra en la lista de inscritos en la convocatoria. Un administrador revisara pronto si debe ser activada');
-        }
-
-        return redirect('/login');
-
-        //Auth::guard($this->getGuard())->login($this->create($request->all()));
-
-        //return redirect($this->redirectPath());
+        return redirect($this->redirectPath());
     }
 
     /**
@@ -93,5 +74,4 @@ trait RegistersUsers
     {
         return property_exists($this, 'guard') ? $this->guard : null;
     }
-    
 }

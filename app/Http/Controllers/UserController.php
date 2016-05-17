@@ -37,6 +37,19 @@ class UserController extends Controller
         ]);
 	}
 
+    public function search(Request $request){
+        $this->authorize('search', $request->user());
+        if($query = $request->get('q')){
+            $users = $this->users->searchByQuery($query);
+            return view('users.search', [
+                'users' => $users,
+                'query' => $query
+            ]);
+        }else{
+            return redirect('/users');
+        }
+    }
+
     public function view(Request $request, $id){
         if($user = $this->users->forId($id)){
             $this->authorize($user);

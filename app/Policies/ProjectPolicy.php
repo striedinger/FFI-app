@@ -24,6 +24,10 @@ class ProjectPolicy
         }
     }
 
+    public function search(User $user){
+        return $user->isAdmin();
+     }
+
     public function view(User $user, Project $project){
         if($user->isAdmin()){
             return true;

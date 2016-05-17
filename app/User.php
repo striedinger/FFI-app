@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Nicolaslopezj\Searchable\SearchableTrait;
+
 class User extends Authenticatable
 {
     /**
@@ -14,10 +16,23 @@ class User extends Authenticatable
      */
     use SoftDeletes;
 
+    use SearchableTrait;
+
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
         'name', 'email', 'password', 'city', 'state_id', 'phone', 'company_id', 'active', 'role_id'
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'users.name' => 10,
+            'users.email' => 10,
+        ],
+        'joins' => [
+            'companies' => ['users.id', 'companies.user_id'],
+            'projects' => ['users.id', 'projects.user_id'],
+        ]
     ];
 
     /**

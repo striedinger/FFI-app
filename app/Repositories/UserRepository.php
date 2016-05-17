@@ -21,4 +21,8 @@ class UserRepository
     public function forId($id){
         return User::where(['id' => $id])->first();
     }
+
+    public function searchByQuery($query){
+        return User::search($query)->take(50)->get();
+    }
 }

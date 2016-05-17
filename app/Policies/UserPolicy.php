@@ -11,11 +11,7 @@ class UserPolicy
     use HandlesAuthorization;
 
     public function index(User $user){
-    	if($user->isAdmin()){
-    		return true;
-    	}else{
-    		return false;
-    	}
+    	return $user->isAdmin();
     }
 
     public function update(User $user1, User $user2){
@@ -24,6 +20,10 @@ class UserPolicy
         }else{
             return $user1->id == $user2->id;
         }
+     }
+
+     public function search(User $user){
+        return $user->isAdmin();
      }
 
      public function view(User $user1, User $user2){

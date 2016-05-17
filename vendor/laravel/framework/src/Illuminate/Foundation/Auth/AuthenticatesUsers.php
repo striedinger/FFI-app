@@ -72,11 +72,6 @@ trait AuthenticatesUsers
         $credentials = $this->getCredentials($request);
 
         if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
-            //Custom check for active user
-            if(!Auth::user()->active){
-                Auth::logout();
-                return redirect('/login')->withErrors(['email' =>  'Por favor espere a que su cuenta sea verificada por un administrador.']);
-            }
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
@@ -99,7 +94,7 @@ trait AuthenticatesUsers
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->loginUsername() => 'required', 'password' => 'required',     
+            $this->loginUsername() => 'required', 'password' => 'required',
         ]);
     }
 
@@ -184,6 +179,16 @@ trait AuthenticatesUsers
     }
 
     /**
+     * Get the guest middleware for the application.
+     */
+    public function guestMiddleware()
+    {
+        $guard = $this->getGuard();
+
+        return $guard ? 'guest:'.$guard : 'guest';
+    }
+
+    /**
      * Get the login username to be used by the controller.
      *
      * @return string
@@ -201,7 +206,7 @@ trait AuthenticatesUsers
     protected function isUsingThrottlesLoginsTrait()
     {
         return in_array(
-            ThrottlesLogins::class, class_uses_recursive(get_class($this))
+            ThrottlesLogins::class, class_uses_recursive(static::class)
         );
     }
 

@@ -51,6 +51,19 @@ class ProjectController extends Controller
         }
     }
 
+    public function search(Request $request){
+        $this->authorize('search', $request->user());
+        if($query = $request->get('q')){
+            $projects = $this->projects->searchByQuery($query);
+            return view('projects.search', [
+                'projects' => $projects,
+                'query' => $query
+            ]);
+        }else{
+            return redirect('/projects');
+        }
+    }
+
 	public function create(Request $request){
     	if($request->isMethod('post')){
     		$this->validate($request, [

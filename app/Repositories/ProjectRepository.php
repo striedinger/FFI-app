@@ -25,4 +25,8 @@ class ProjectRepository
     {
         return Project::where('id', $id)->first();
     }
+
+    public function searchByQuery($query){
+        return Project::search($query)->take(50)->get();
+    }
 }

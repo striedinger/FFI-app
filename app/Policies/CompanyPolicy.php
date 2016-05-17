@@ -20,6 +20,10 @@ class CompanyPolicy
         }
      }
 
+     public function search(User $user){
+        return $user->isAdmin();
+     }
+
      public function view(User $user, Company $company){
         if($user->isAdmin()){
             return true;

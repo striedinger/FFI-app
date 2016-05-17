@@ -51,6 +51,8 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/users/view/{id}', 'UserController@view');
 
+	Route::get('/users/search', 'UserController@search');
+
 	//Companies
 
 	Route::get('/companies', 'CompanyController@index');
@@ -65,9 +67,11 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/companies/view/{id}', 'CompanyController@view');
 
+	Route::get('/companies/search', 'CompanyController@search');
+
 	//Projects
 
-	/*Route::get('/projects', 'ProjectController@index');
+	Route::get('/projects', 'ProjectController@index');
 
 	Route::get('/projects/create', 'ProjectController@create');
 
@@ -77,17 +81,19 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/projects/update/{id}', 'ProjectController@update');
 
-	Route::post('/projects/update/{id}', 'ProjectController@update');*/
+	Route::post('/projects/update/{id}', 'ProjectController@update');
+
+	Route::get('/projects/search', 'ProjectController@search');
 
 	//Project Comments
 
-	/*Route::post('projects/comment/{id}', 'ProjectCommentController@create');
+	Route::post('projects/comment/{id}', 'ProjectCommentController@create');
 
-	Route::delete('projects/comment/{id}', 'ProjectCommentController@destroy');*/
+	Route::delete('projects/comment/{id}', 'ProjectCommentController@destroy');
 
 	//Consultations
 
-	/*Route::get('consultations/view/{id}', 'ConsultationController@view');
+	Route::get('consultations/view/{id}', 'ConsultationController@view');
 
 	Route::get('/consultations', 'ConsultationController@index');
 
@@ -97,7 +103,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/consultations/update/{id}', 'ConsultationController@update');
 
-	Route::post('/consultations/update/{id}', 'ConsultationController@update');*/
+	Route::post('/consultations/update/{id}', 'ConsultationController@update');
 
 	//Canvases
 

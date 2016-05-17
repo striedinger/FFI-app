@@ -28,4 +28,8 @@ class CompanyRepository
     public function listForUser(User $user){
         return Company::where(['user_id' => $user->id, 'active' => true])->lists('name', 'id');
     }
+
+    public function searchByQuery($query){
+        return Company::search($query)->take(50)->get();
+    }
 }

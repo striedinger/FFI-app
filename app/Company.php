@@ -5,13 +5,30 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Nicolaslopezj\Searchable\SearchableTrait;
+
 class Company extends Model
 {
 	use SoftDeletes;
 
+    use SearchableTrait;
+
 	protected $dates = ['deleted_at'];
 
     protected $fillable = ['name', 'nit', 'description', 'state_id', 'city', 'address', 'active'];
+
+    protected $searchable = [
+        'columns' => [
+            'companies.name' => 10,
+            'companies.description' => 10,
+            'companies.city' => 10,
+            'companies.address' => 10,
+            'companies.nit' => 10,
+        ],
+        'joins' => [
+            'projects' => ['companies.id', 'projects.company_id'],
+        ]
+    ];
 
     public function user(){
     	return $this->belongsTo(User::class);

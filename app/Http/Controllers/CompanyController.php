@@ -48,6 +48,19 @@ class CompanyController extends Controller
         }
     }
 
+    public function search(Request $request){
+        $this->authorize('search', $request->user());
+        if($query = $request->get('q')){
+            $companies = $this->companies->searchByQuery($query);
+            return view('companies.search', [
+                'companies' => $companies,
+                'query' => $query
+            ]);
+        }else{
+            return redirect('/companies');
+        }
+    }
+
 	public function create(Request $request){
     	if($request->isMethod('post')){
     		$this->validate($request, [

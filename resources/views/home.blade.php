@@ -79,13 +79,13 @@
 
                 <div class="panel-body">
                     <p>Bienvenido a la plataforma de gestión de proyectos del Fondo del Fomento a la Innovación Caribe (FFI Caribe).</p>
-                    <p>Comienza por registrar tu empresa en la pestaña “Empresas”, luego llena la siguiente información:</p>
+                    <p>Comience por registrar su empresa en la pestaña “Empresas”, luego llene la siguiente información:</p>
                     <ul>
                         {{--<li><p onclick="swal('¿Modelo de Negocios Canvas?', 'Es una herramienta de análisis donde quedan reflejadas las fortalezas y debilidades de un modelo de negocio, proveyendo una visión global de este de manera rápida y sencilla.')">Modelo de Negocios Canvas <i class=" glyphicon glyphicon-question-sign"></i></p></li>--}}
                         <li><p onclick="swal('¿ICAi?', 'El Instrumento de Caracterización de la Actividad Innovadora (ICAI) permite identificar los insumos, productos, resultados y comportamientos derivados de la actividad innovadora de las empresas evaluadas.')">Instrumento ICAi <i class=" glyphicon glyphicon-question-sign"></i></p></li>
                         <li><p onclick="swal('¿Miindex?', 'Es un instrumento diseñado para medir la percepción interna de la cultura de innovación.')">Instrumento Miindex <i class=" glyphicon glyphicon-question-sign"></i></p></li>
                     </ul>
-                    <p>Si tienes cualquier duda comunícate con uno de nuestros asesores escribiéndonos al correo <a href="mailto:fficaribe@uninorte.edu.co">fficaribe@uninorte.edu.co</a> o a cualquiera de nuestros asesores:</p>
+                    <p>Si tiene cualquier duda comuníquese con uno de nuestros asesores:</p>
                     <ul>
                         <li>Nicolás E. Gómez Jacome - <a href="mailto:njacome@uninorte.edu.co">njacome@uninorte.edu.co</a></li>
                         <li>Tatiana C. Alfaro Díaz - <a href="mailto:alfarot@uninorte.edu.co">alfarot@uninorte.edu.co</a></li>
@@ -93,7 +93,8 @@
                         <li>Emyle Britton Acevedo - <a href="mailto:ebritton@uninorte.edu.co">ebritton@uninorte.edu.co</a></li>
                         <li>Ana Marcela Velaidez - <a href="mailto:avelaidez@uninorte.edu.co">avelaidez@uninorte.edu.co</a></li>
                     </ul>
-                    <p>En esta pagina encontraras siempre las ultimas noticias, instrucciones y progreso personalizado de tu estado en la convocatoria. Asegúrate de revisar frecuentemente.</p>
+                    <p>O nos puede a nuestro correo general: <a href="mailto:fficaribe@uninorte.edu.co">fficaribe@uninorte.edu.co</a></p>
+                    <p>En esta pagina encontrara siempre las ultimas noticias, instrucciones y progreso personalizado de su estado en la convocatoria. Asegúrese de revisar frecuentemente.</p>
                 </div>
             </div>
         </div>

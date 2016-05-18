@@ -78,7 +78,7 @@
                 <div class="panel-heading">Inicio</div>
 
                 <div class="panel-body">
-                    <p>Bienvenido a la plataforma de gestión de proyectos del Fondo del Fomento a la Innovación Caribe (FFI Caribe).</p>
+                    <p>Bienvenido a la plataforma de gestión de proyectos del Fondo de Fomento a la Innovación y Desarrollo Tecnológico en las Empresas (FFI Caribe).</p>
                     <p>Comience por registrar su empresa en la pestaña “Empresas”, luego llene la siguiente información:</p>
                     <ul>
                         {{--<li><p onclick="swal('¿Modelo de Negocios Canvas?', 'Es una herramienta de análisis donde quedan reflejadas las fortalezas y debilidades de un modelo de negocio, proveyendo una visión global de este de manera rápida y sencilla.')">Modelo de Negocios Canvas <i class=" glyphicon glyphicon-question-sign"></i></p></li>--}}
@@ -93,7 +93,7 @@
                         <li>Emyle Britton Acevedo - <a href="mailto:ebritton@uninorte.edu.co">ebritton@uninorte.edu.co</a></li>
                         <li>Ana Marcela Velaidez - <a href="mailto:avelaidez@uninorte.edu.co">avelaidez@uninorte.edu.co</a></li>
                     </ul>
-                    <p>O nos puede a nuestro correo general: <a href="mailto:fficaribe@uninorte.edu.co">fficaribe@uninorte.edu.co</a></p>
+                    <p>O nos puede contactar a través de nuestro correo general: <a href="mailto:fficaribe@uninorte.edu.co">fficaribe@uninorte.edu.co</a></p>
                     <p>En esta pagina encontrara siempre las ultimas noticias, instrucciones y progreso personalizado de su estado en la convocatoria. Asegúrese de revisar frecuentemente.</p>
                 </div>
             </div>

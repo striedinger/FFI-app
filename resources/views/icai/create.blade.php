@@ -509,7 +509,6 @@
                                 <!-- Seccion 8-->
                                 <div class="tab-pane fade" id="section8">
                                     <p><strong>Actividades de Innovación: </strong>las actividades innovadoras se corresponden con todas las operaciones científicas, tecnológicas, organizativas, financieras y comerciales que conducen efectivamente, o tienen por objeto confundir a la introducción de observaciones (Manual de Oslo, 2005).</p>
-                                    <p><strong>NOTA: </strong>Diligenciar esta sesión UNICAMENTE, si la empresa ha iniciado y/o ejecutado algún tipo de innovación en el período 2014-2015.</p>
                                     <div class="form-group">
                                         <label>¿Su empresa cuenta con Departamento de I+D?</label>
                                         <br>
@@ -523,6 +522,7 @@
                                         </span>
                                         @endif
                                     </div>
+                                    <p><strong>Nota: </strong>Diligenciar esta sesión UNICAMENTE, si la empresa ha iniciado y/o ejecutado algún tipo de innovación en el período 2014-2015.</p>
                                     <div class="form-group">
                                         <label>
                                             Indique si ha invertido en alguna de las siguientes actividades de innovación durante el periodo 2014-2015, anotando las respectivas fuentes de financiación utilizadas
@@ -841,7 +841,7 @@
                                 </div>
                                 <!-- Seccion 9-->
                                 <div class="tab-pane fade" id="section9">
-                                    <p><strong>NOTA: </strong>Diligenciar esta sesión si la empresa ha iniciado o ejecutado algún tipo de innovación en el período 2014-2015. </p>
+                                    <p><strong>Nota: </strong>Diligenciar esta sesión si la empresa ha iniciado o ejecutado algún tipo de innovación en el período 2014-2015. </p>
                                     <p><strong>Indique el grado de importancia de los objetivos perseguidos al momento de realizar sus innovaciones en el período 2014 - 2015 </strong>(Nota: Si el objetivo no fue perseguido al momento de realizar sus innovaciones, no conteste las siguientes preguntas)</p>
                                     <div class="table-responsive">
                                         <table class="table table-striped">

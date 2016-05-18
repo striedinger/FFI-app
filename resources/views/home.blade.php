@@ -94,7 +94,7 @@
                         <li>Ana Marcela Velaidez - <a href="mailto:avelaidez@uninorte.edu.co">avelaidez@uninorte.edu.co</a></li>
                     </ul>
                     <p>O nos puede contactar a través de nuestro correo general: <a href="mailto:fficaribe@uninorte.edu.co">fficaribe@uninorte.edu.co</a></p>
-                    <p>En esta pagina encontrara siempre las ultimas noticias, instrucciones y progreso personalizado de su estado en la convocatoria. Asegúrese de revisar frecuentemente.</p>
+                    <p>En esta página encontrara siempre las ultimas noticias, instrucciones y progreso personalizado de su estado en la convocatoria. Asegúrese de revisar frecuentemente.</p>
                 </div>
             </div>
         </div>

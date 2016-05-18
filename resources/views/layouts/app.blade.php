@@ -17,6 +17,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ URL::asset('assets/css/app.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
     <!-- MetisMenu CSS -->
     <link rel="stylesheet" href="{{ URL::asset('assets/css/metisMenu/metisMenu.min.css') }}">
 
@@ -36,6 +38,8 @@
    <link rel="stylesheet" href="{{ URL::asset('assets/css/datetimepicker/datetimepicker.css') }}">
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
     <style>
         body {

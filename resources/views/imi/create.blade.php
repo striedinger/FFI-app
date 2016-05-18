@@ -20,7 +20,7 @@
 				<div class="col-sm-12 col-md-12">
 					<form method="POST">
 						<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-						<p><strong>Para cada una de las siguientes afirmaciones, Indique en las siguientes escalas el grado de acuerdo.</strong></p>
+						<p><strong>Para cada una de las siguientes afirmaciones, Indique en las siguientes escalas el grado de acuerdo. Escala de grado de acuerdo: 0 Totalmente en desacuerdo, 100 Totalmente de acuerdo.</strong></p>
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<thead>

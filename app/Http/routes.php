@@ -25,10 +25,15 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'DashboardController@index');
     
-	/*Route::get('/test', function(){
-		$id = "gomezsoto@gmail.com";
+	Route::get('/test', function(){
+		$ciius= file_get_contents(storage_path('CIIU.txt'));
+		$ciius = explode(";", $ciius);
+		foreach($ciius as $ciiu){
+			echo $ciiu . "<br>";
+		}
+		/*$id = "ceo@camilovera.com.co";
 		$emails = file_get_contents(storage_path('ffiemails.txt'));
-		$emails = explode(", ", $emails);
+		$emails = explode(",", $emails);
 		if(in_array($id, $emails)){
 			echo "Match found";
 		}else{
@@ -36,8 +41,8 @@ Route::group(['middleware' => ['web']], function () {
 		}
 		foreach($emails as $email){
 			echo strtolower($email) . "<br>";
-		}
-	});*/
+		}*/
+	});
 
 	Route::auth();
 

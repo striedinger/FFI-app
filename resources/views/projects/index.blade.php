@@ -11,6 +11,7 @@
             <p>No hay proyectos registrados.</p>
             @endif
             @if (count($projects) > 0)
+            @if(Auth::user()->isAdmin())
             {!! Form::open(['action' => array('ProjectController@search'), 'method' => 'get']) !!}
                 <div class="form-group">
                     <div class="input-group">
@@ -21,6 +22,7 @@
                     </div>
                 </div>
             {!! Form::close() !!}
+            @endif
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>

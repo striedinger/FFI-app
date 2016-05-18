@@ -4,7 +4,7 @@
 <div>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">ICAI</div>
+            <div class="panel-heading">ICAi - <a href="{{ url('/companies/view') . '/' . $company->id }}">{{ $company->name }}</a></div>
             <div class="panel-body">
                 <form method="POST">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
@@ -165,11 +165,12 @@
                                         <label>
                                             ¿Cuál de estos sectores (CIIU Rev. 4) representa principalmente la actividad económica principal de su empresa?
                                         </label>
-                                        <select class="form-control" name="p11">
-                                            @foreach($sectors as $sector)
-                                            <option value="{{ $sector['rev'] }}">{{ $sector['rev'] . ' - ' . $sector['desc'] }}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" class="form-control" name="p11" value="{{ old('p11') }}" id="ciuu">
+                                        @if ($errors->has('p11'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('p11') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label>
@@ -222,7 +223,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>
-                                            Número de empleados (promedio anual) del año 2014 (incluyendo empleados con contrato laboral y de prestación de servicio)
+                                            Número de empleados (promedio anual) del año 2015 (incluyendo empleados con contrato laboral y de prestación de servicio)
                                         </label>
                                         <input class="form-control" name="p16" value="{{ old('p16') }}" placeholder="">
                                         @if ($errors->has('p16'))
@@ -234,6 +235,8 @@
                                 </div>
                                 <!-- Seccion 4-->
                                 <div class="tab-pane fade" id="section4">
+                                    <p><strong>Innovación de Producto: </strong>Innovar un producto consiste en introducir en el mercado de manera novedosa un bien o servicio, o introducir mejoras significativas a las características o usos de un bien o servicio ya existente (Manual de Oslo, 2005).</p>
+                                    <p><strong>Nota: </strong>Diligencie esta sesión UNICAMENTE, si la empresa ha iniciado y/o ejecutado algún tipo de innovación en el período 2014-2015.</p>
                                     <div class="form-group">
                                         <label>Durante el periodo 2014 - 2015 su empresa introdujo:</label>
                                         <div class="table-responsive">
@@ -244,7 +247,11 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Bienes nuevos</td>
+                                                        <td>
+                                                            Bienes nuevos 
+                                                            <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Introducción de un bien que difiere significativamente desde el punto de vista de sus características o el uso al cual se destina, de los productos pre-existentes en la empresa (Manual de Oslo, 2005).')"> <i class=" glyphicon glyphicon-question-sign"></i> Ejemplo
+                                                            </div>
+                                                        </td>
                                                         <td align="center">
                                                             <div class="checkbox">
                                                                 <label>
@@ -254,7 +261,11 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Bienes significativamente mejorados</td>
+                                                        <td>
+                                                            Bienes significativamente mejorados
+                                                            <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Las mejoras significativas de productos existentes se producen cuando se introducen cambios en los materiales, componentes u otras características que hacen que estos productos tengan un mejor rendimiento (Manual de Oslo, 2005).')"> <i class=" glyphicon glyphicon-question-sign"></i> Ejemplo
+                                                            </div>
+                                                        </td>
                                                         <td align="center">
                                                             <div class="checkbox">
                                                                 <label>
@@ -264,7 +275,11 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Servicios nuevos</td>
+                                                        <td>
+                                                            Servicios nuevos
+                                                            <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Introducción de un servicio que difiere significativamente desde el punto de vista de la manera en que estos servicios se prestan (en términos de eficiencia y rapidez, por ejemplo) (Manual de Oslo, 2005).')"> <i class=" glyphicon glyphicon-question-sign"></i> Ejemplo
+                                                            </div>
+                                                        </td>
                                                         <td align="center">
                                                             <div class="checkbox">
                                                                 <label>
@@ -303,7 +318,7 @@
                                                     <tr>
                                                         <td>
                                                             Un nuevo método de manufactura o de producción de bienes y servicios
-                                                            <div class="btn-xs" onclick="swal('Por Ejemplo:', ' Automatización de procesos manuales, sistemas de envasado automático, instalación de un diseño asistido por ordenador para el desarrollo de un producto…')"> <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                            <div class="btn-xs" onclick="swal('Por Ejemplo:', ' Automatización de procesos manuales, sistemas de envasado automático, instalación de un diseño asistido por ordenador para el desarrollo de un producto…')"> <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -318,7 +333,7 @@
                                                     <tr>
                                                         <td>
                                                             Un nuevo método de logística, entrega o distribución para sus insumos, bienes o servicios
-                                                            <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Sistemas de pedidos, sistemas de minimización de stocks, sistemas logísticos de transporte…')"> <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                            <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Sistemas de pedidos, sistemas de minimización de stocks, sistemas logísticos de transporte…')"> <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -334,7 +349,7 @@
                                                         <td>
                                                             Una nueva actividad de apoyo para sus procesos, tales como sistema de mantenimiento u operaciones de compra, contabilidad o informática
                                                             <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Sistemas de información y gestión, sistemas de gestión de contabilidad, sistemas tipo SAP…')">
-                                                                <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                                <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -366,7 +381,7 @@
                                                         <td>
                                                             Nuevas prácticas en la organización del trabajo o procedimientos de la empresa
                                                             <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Gestión de la cadena de suministro, sistemas de gestión del conocimiento, reingeniería de negocios, producción eficiente, sistemas de educación y formación…')">
-                                                                <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                                <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -382,7 +397,7 @@
                                                         <td>
                                                             Nuevos métodos de organizar los lugares de trabajo para mejorar el reparto de responsabilidades y la toma de decisiones
                                                             <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Uso por primera vez de un nuevo sistema de reparto de responsabilidades entre los empleados, gestión de equipos de trabajo, descentralización, reestructuración de departamentos…')">
-                                                                <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                                <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -398,7 +413,7 @@
                                                         <td>
                                                             Nuevos métodos de gestión de relaciones externas con otras empresas o instituciones públicas
                                                             <div class="btn-xs" onclick="swal('Por Ejemplo:', 'La creación por primera vez de alianzas, asociaciones, externalización o subcontratación')">
-                                                                <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                                <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -430,7 +445,7 @@
                                                         <td>
                                                             Cambios significativos en el diseño, envase y embalaje de bienes y servicios
                                                             <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Se excluyen los cambios que alteran la funcionalidad o características de uso del producto')">
-                                                                <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                                <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -446,7 +461,7 @@
                                                         <td>
                                                             Nuevos medios o técnicas para la promoción del producto
                                                             <div class="btn-xs" onclick="swal('Por Ejemplo:', 'Uso por primera vez de un nuevo canal publicitario, fundamentalmente marcas nuevas con el objetivo de introducirse en nuevos mercados, introducción de tarjetas de fidelización de clientes…')">
-                                                                <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                                <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -462,7 +477,7 @@
                                                         <td>
                                                             Nuevos métodos o canales de venta para el posicionamiento del producto en el mercado
                                                             <div class="btn-xs" onclick="swal('Por Ejemplo:', 'El uso por primera vez de franquiciado o licencias de distribución, venta directa, venta al por menor en exclusiva, nuevos conceptos para la presentación del producto…')">
-                                                                <i class=" glyphicon glyphicon-plus-sign"></i>
+                                                                <i class=" glyphicon glyphicon-question-sign"></i>
                                                                 Ejemplo
                                                             </div>
                                                         </td>
@@ -493,6 +508,21 @@
                                 </div>
                                 <!-- Seccion 8-->
                                 <div class="tab-pane fade" id="section8">
+                                    <p><strong>Actividades de Innovación: </strong>las actividades innovadoras se corresponden con todas las operaciones científicas, tecnológicas, organizativas, financieras y comerciales que conducen efectivamente, o tienen por objeto confundir a la introducción de observaciones (Manual de Oslo, 2005).</p>
+                                    <p><strong>NOTA: </strong>Diligenciar esta sesión UNICAMENTE, si la empresa ha iniciado y/o ejecutado algún tipo de innovación en el período 2014-2015.</p>
+                                    <div class="form-group">
+                                        <label>¿Su empresa cuenta con Departamento de I+D?</label>
+                                        <br>
+                                        <label>
+                                            <input type="radio" name="p68" value="Si"> Si &nbsp;</label>
+                                        <label>
+                                            <input type="radio" name="p68" value="No"> No</label>
+                                        @if ($errors->has('p68'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('p68') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
                                     <div class="form-group">
                                         <label>
                                             Indique si ha invertido en alguna de las siguientes actividades de innovación durante el periodo 2014-2015, anotando las respectivas fuentes de financiación utilizadas
@@ -808,23 +838,11 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>¿Su empresa cuenta con Departamento de I+D?</label>
-                                        <br>
-                                        <label>
-                                            <input type="radio" name="p68" value="Si"> Si &nbsp;</label>
-                                        <label>
-                                            <input type="radio" name="p68" value="No"> No</label>
-                                        @if ($errors->has('p68'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('p68') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
                                 </div>
                                 <!-- Seccion 9-->
                                 <div class="tab-pane fade" id="section9">
-                                    <p><strong>Indique el grado de importancia de los objetivos perseguidos al momento de realizar sus innovaciones en el período 2013 - 2014 </strong>(Nota: Si el objetivo no fue perseguido al momento de realizar sus innovaciones, no conteste las siguientes preguntas)</p>
+                                    <p><strong>NOTA: </strong>Diligenciar esta sesión si la empresa ha iniciado o ejecutado algún tipo de innovación en el período 2014-2015. </p>
+                                    <p><strong>Indique el grado de importancia de los objetivos perseguidos al momento de realizar sus innovaciones en el período 2014 - 2015 </strong>(Nota: Si el objetivo no fue perseguido al momento de realizar sus innovaciones, no conteste las siguientes preguntas)</p>
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <thead>
@@ -843,7 +861,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-group" style="padding:10px">
-                                                            <input type="hidden" name="{{ 'p' . $i }}" value="50" data-range>
+                                                            <input type="hidden" name="{{ 'p' . $i }}" value="0" data-range>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -854,6 +872,7 @@
                                 </div>
                                 <!-- Seccion 10-->
                                 <div class="tab-pane fade" id="section10">
+                                    <p><strong>Nota: </strong>Diligenciar esta sesión si la empresa ha iniciado o ejecutado algún tipo de innovación en el período 2014-2015. </p>
                                     <p><strong>Señale el grado de importancia que tuvieron las siguientes barreras para la actividad innovadora en su empresa. </strong>(Nota: Si la barrera no fue percibida al momento de realizar sus innovaciones, no conteste las siguientes preguntas)</p>
                                     <div class="table-responsive">
                                         <table class="table table-striped">
@@ -873,7 +892,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-group" style="padding:10px">
-                                                            <input type="hidden" name="{{ 'p' . $i }}" value="50" data-range>
+                                                            <input type="hidden" name="{{ 'p' . $i }}" value="0" data-range>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -884,6 +903,7 @@
                                 </div>
                                 <!-- Seccion 11-->
                                 <div class="tab-pane fade" id="section11">
+                                    <p><strong>Nota: </strong>Diligenciar esta sesión si la empresa ha iniciado o ejecutado algún tipo de innovación en el período 2014-2015.</p>
                                     <p><strong>Señale el grado de importancia que tuvieron las siguientes fuentes de información para la actividad innovadora en su empresa. </strong>(Nota: Si la fuente de información no fue utilizada al momento de realizar sus innovaciones, no conteste las siguientes preguntas)    </p>
                                     <div class="table-responsive">
                                         <table class="table table-striped">
@@ -903,7 +923,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-group" style="padding:10px">
-                                                            <input type="hidden" name="{{ 'p' . $i }}" value="50" data-range>
+                                                            <input type="hidden" name="{{ 'p' . $i }}" value="0" data-range>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -912,7 +932,7 @@
                                         </table>
                                     </div>
                                     <br>
-                                    <p><strong>Señale el grado de importancia de los siguientes socios de cooperación  utilizados para llevar a cabo actividades de ciencia, tecnología e innovación durante el periodo 2013 - 2014 </strong>(Nota: Si no hubo cooperación con el socio al momento de realizar sus innovaciones, no conteste las siguientes preguntas)
+                                    <p><strong>Señale el grado de importancia de los siguientes socios de cooperación  utilizados para llevar a cabo actividades de ciencia, tecnología e innovación durante el periodo 2014 - 2015 </strong>(Nota: Si no hubo cooperación con el socio al momento de realizar sus innovaciones, no conteste las siguientes preguntas)
                                     </p>
                                     <div class="table-responsive">
                                         <table class="table table-striped">
@@ -932,7 +952,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-group" style="padding:10px">
-                                                            <input type="hidden" name="{{ 'p' . $i }}" value="50" data-range>
+                                                            <input type="hidden" name="{{ 'p' . $i }}" value="0" data-range>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -963,11 +983,25 @@
         $(this).tab('show')
     });
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    $(function(){
+        var tags = [
+            <?php  
+            $ciius= file_get_contents(storage_path('CIIU.txt'));
+            $ciius = explode(";", $ciius);
+            foreach($ciius as $ciiu){
+                echo "'" . $ciiu . "'"  . ", ";
+            }
+            ?>
+        ];
+        $("#ciuu").autocomplete({
+            source: tags
+        });
+    });
     $('#datepicker').datetimepicker({
     viewMode: 'years',
-    'format' : 'YYYY-MM-DD'
+    'format' : 'YYYY'
     });
     var selector = '[data-range]';
     var $element = $(selector);

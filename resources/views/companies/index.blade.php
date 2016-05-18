@@ -11,6 +11,7 @@
             <p>No hay empresas registradas.</p>
             @endif
             @if (count($companies) > 0)
+            @if(Auth::user()->isAdmin())
             {!! Form::open(['action' => array('CompanyController@search'), 'method' => 'get']) !!}
                 <div class="form-group">
                     <div class="input-group">
@@ -21,6 +22,7 @@
                     </div>
                 </div>
             {!! Form::close() !!}
+            @endif
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>

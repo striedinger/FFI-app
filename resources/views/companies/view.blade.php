@@ -45,7 +45,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-6" style="padding:0">
-					<div class="col-sm-12">
+					{{--<div class="col-sm-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<span onclick="swal('¿Modelo de Negocios Canvas?', 'Es una herramienta de análisis donde quedan reflejadas las fortalezas y debilidades de un modelo de negocio, proveyendo una visión global de este de manera rápida y sencilla.')">Modelo de Negocios Canvas <i class=" glyphicon glyphicon-question-sign"></i></span>
@@ -77,16 +77,16 @@
 								@endif
 							</div>
 						</div>
-					</div>
+					</div>--}}
 					<div class="col-sm-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<span onclick="swal('¿ICAI?', 'El Instrumento de Caracterización de la Actividad Innovadora (ICAI) permite identificar los insumos, productos, resultados y comportamientos derivados de la actividad innovadora de las empresas evaluadas.')">Instrumento ICAI <i class=" glyphicon glyphicon-question-sign"></i></span>
+								<span onclick="swal('¿ICAi?', 'El Instrumento de Caracterización de la Actividad Innovadora (ICAI) permite identificar los insumos, productos, resultados y comportamientos derivados de la actividad innovadora de las empresas evaluadas.')">Instrumento ICAi <i class=" glyphicon glyphicon-question-sign"></i></span>
 								<a href="{{ url('icai/create') . '/' . $company->id }}" class="pull-right"><i class="fa fa-plus"></i></a>
 							</div>
 							<div class="panel-body">
 								@if(count($company->icai)==0)
-								<p>No hay ningun ICAI creado.</p>
+								<p>No hay ningun ICAi creado.</p>
 								@endif
 								@if(count($company->icai)>0)
 								<div class="table-responsive">

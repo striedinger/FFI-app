@@ -118,7 +118,7 @@ class AuthController extends Controller
         $user = $this->create($request->all());
         if($emails = file_get_contents(storage_path('ffiemails.txt'))){
             $emails = strtolower($emails);
-            $emails = explode(", ", $emails);
+            $emails = explode(",", $emails);
             if(in_array(strtolower($request->email), $emails)){
                 $user->active = true;
                 $user->save();

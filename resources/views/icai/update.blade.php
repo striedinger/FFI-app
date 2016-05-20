@@ -892,7 +892,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-group" style="padding:10px">
-                                                            <input type="hidden" name="{{ 'p' . $i }}" value="$icai['p' . $i]" data-range>
+                                                            <input type="hidden" name="{{ 'p' . $i }}" value="{{ $icai['p' . $i] }}" data-range>
                                                         </div>
                                                     </td>
                                                 </tr>

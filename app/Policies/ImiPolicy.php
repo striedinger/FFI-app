@@ -15,7 +15,7 @@ class ImiPolicy
     use HandlesAuthorization;
 
     public function update($user, $imi){
-        if($user->isSuperAdmin()){
+        if($user->isAdmin()){
             return true;
         }else{
             return $user->id == $imi->company->user_id;

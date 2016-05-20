@@ -15,7 +15,7 @@ class IcaiPolicy
     use HandlesAuthorization;
 
     public function update($user, $icai){
-        if($user->isSuperAdmin()){
+        if($user->isAdmin()){
             return true;
         }else{
             return $user->id == $icai->company->user_id;

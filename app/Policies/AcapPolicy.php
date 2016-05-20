@@ -15,7 +15,7 @@ class AcapPolicy
     use HandlesAuthorization;
 
     public function update($user, $acap){
-        if($user->isSuperAdmin()){
+        if($user->isAdmin()){
             return true;
         }else{
             return $user->id == $acap->company->user_id;

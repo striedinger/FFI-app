@@ -508,7 +508,7 @@
                                 </div>
                                 <!-- Seccion 8-->
                                 <div class="tab-pane fade" id="section8">
-                                    <p><strong>Actividades de Innovación: </strong>las actividades innovadoras se corresponden con todas las operaciones científicas, tecnológicas, organizativas, financieras y comerciales que conducen efectivamente, o tienen por objeto confundir a la introducción de observaciones (Manual de Oslo, 2005).</p>
+                                    <p><strong>Actividades de Innovación: </strong>las actividades innovadoras se corresponden con todas las operaciones científicas, tecnológicas, organizativas, financieras y comerciales que conducen efectivamente a la innovación (Manual de Oslo, 2005).</p>
                                     <div class="form-group">
                                         <label>¿Su empresa cuenta con Departamento de I+D?</label>
                                         <br>

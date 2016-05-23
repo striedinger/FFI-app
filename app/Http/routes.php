@@ -25,7 +25,7 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'DashboardController@index');
     
-	Route::get('/test', function(){
+	/*Route::get('/test', function(){
 		$ciius= file_get_contents(storage_path('CIIU.txt'));
 		$ciius = explode(";", $ciius);
 		foreach($ciius as $ciiu){
@@ -42,7 +42,7 @@ Route::group(['middleware' => ['web']], function () {
 		foreach($emails as $email){
 			echo strtolower($email) . "<br>";
 		}*/
-	});
+	/*});*/
 
 	Route::auth();
 

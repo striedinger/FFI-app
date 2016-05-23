@@ -551,7 +551,7 @@
                                                         <td align="center">
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input type="hidden" name="p34" value="0">
+                                                                    <input type="hidden" name="p33" value="0">
                                                                     <input type="checkbox" name="p33" value="1"></label>
                                                             </div>
                                                         </td>
@@ -618,7 +618,7 @@
                                                             <div class="checkbox">
                                                                 <label>
                                                                     <input type="hidden" name="p41" value="0">
-                                                                    <input type="checkbox" name="41" value="1"></label>
+                                                                    <input type="checkbox" name="p41" value="1"></label>
                                                             </div>
                                                         </td>
                                                         <td align="center">
@@ -651,7 +651,7 @@
                                                             <div class="checkbox">
                                                                 <label>
                                                                     <input type="hidden" name="p45" value="0">
-                                                                    <input type="checkbox" name="45" value="1"></label>
+                                                                    <input type="checkbox" name="p45" value="1"></label>
                                                             </div>
                                                         </td>
                                                         <td align="center">
@@ -684,7 +684,7 @@
                                                             <div class="checkbox">
                                                                 <label>
                                                                     <input type="hidden" name="p49" value="0">
-                                                                    <input type="checkbox" name="49" value="1"></label>
+                                                                    <input type="checkbox" name="p49" value="1"></label>
                                                             </div>
                                                         </td>
                                                         <td align="center">

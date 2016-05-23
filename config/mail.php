@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'hugostriedinger@gmail.com', 'name' => 'FFI Caribe'],
+    'from' => ['address' => 'fficaribe@uninorte.edu.co', 'name' => 'FFI Caribe'],
 
     /*
     |--------------------------------------------------------------------------

@@ -27,15 +27,20 @@ class ImiController extends Controller
     public function create(Request $request, $id){
     	if($company = $this->company->forId($id)){
 			if($request->user()->id == $company->user_id){
-				if($request->isMethod('post')){
-					$input = $request->all();
-					unset($input['_token']);
-    				$company->imi()->create($input);
-    				$request->session()->flash('status', 'Su IMI ha sido creado');
-    				return redirect('/companies/view/' . $company->id);
-    			}else{
-    				return view('imi.create', ['company' => $company, 'questions' => $this->questions]);
-    			}
+                if(count($company->imi)==0){
+                    if($request->isMethod('post')){
+                        $input = $request->all();
+                        unset($input['_token']);
+                        $company->imi()->create($input);
+                        $request->session()->flash('status', 'Su IMI ha sido creado');
+                        return redirect('/companies/view/' . $company->id);
+                    }else{
+                        return view('imi.create', ['company' => $company, 'questions' => $this->questions]);
+                    }
+                }else{
+                    $request->session()->flash('status', 'Usted ya ha diligenciado el Miindex');
+                    return redirect('/companies/view/' . $company->id);
+                }
 			}else{
 				abort(403, 'Usuario no autorizado');
 			}

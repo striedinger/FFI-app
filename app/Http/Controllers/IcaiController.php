@@ -31,15 +31,20 @@ class IcaiController extends Controller
 	public function create(Request $request, $id){
     	if($company = $this->company->forId($id)){
 			if($request->user()->id == $company->user_id){
-				if($request->isMethod('post')){
-					$input = $request->all();
-					unset($input['_token']);
-    				$company->icai()->create($input);
-    				$request->session()->flash('status', 'Su ICAi ha sido creado');
-    				return redirect('/companies/view/' . $company->id);
-    			}else{
-    				return view('icai.create', ['company' => $company, "education" => $this->education, "markets" => $this->markets, "activities" => $this->activities, "barriers" => $this->barriers, "sources" => $this->sources, "partners" => $this->partners]);
-    			}
+                if(count($company->icai)==0){
+                    if($request->isMethod('post')){
+                        $input = $request->all();
+                        unset($input['_token']);
+                        $company->icai()->create($input);
+                        $request->session()->flash('status', 'Su ICAi ha sido creado');
+                        return redirect('/companies/view/' . $company->id);
+                    }else{
+                        return view('icai.create', ['company' => $company, "education" => $this->education, "markets" => $this->markets, "activities" => $this->activities, "barriers" => $this->barriers, "sources" => $this->sources, "partners" => $this->partners]);
+                    }
+                }else{
+                    $request->session()->flash('status', 'Usted ya ha diligenciado el ICAi');
+                    return redirect('/companies/view/' . $company->id);
+                }
 			}else{
 				abort(403, 'Usuario no autorizado');
 			}

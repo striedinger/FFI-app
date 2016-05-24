@@ -111,7 +111,7 @@
                                 <div class="tab-pane fade" id="section2">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input class="form-control" name="p6" value="{{ Auth::user()->name }}" placeholder="Nombre" readonly>
+                                        <input class="form-control" name="p6" value="{{ Auth::user()->name }}" placeholder="Nombre">
                                         @if ($errors->has('p6'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('p6') }}</strong>
@@ -142,7 +142,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Telefono</label>
-                                        <input class="form-control" name="p9" value="{{ Auth::user()->phone }}" placeholder="Telefono" readonly>
+                                        <input class="form-control" name="p9" value="{{ Auth::user()->phone }}" placeholder="Telefono">
                                         @if ($errors->has('p9'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('p9') }}</strong>

@@ -34,4 +34,16 @@ class PasswordController extends Controller
     {
         return property_exists($this, 'subject') ? $this->subject : 'Enlace para restablecer su contraseña';
     }
+
+    protected function resetPassword($user, $password)
+    {
+        $user->forceFill([
+            'password' => bcrypt($password),
+        ])->save();
+    }
+
+    protected function getResetSuccessResponse($response)
+    {
+        return redirect('/login')->with('status', trans($response));
+    }
 }

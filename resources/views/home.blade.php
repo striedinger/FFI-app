@@ -78,6 +78,7 @@
                 <div class="panel-heading">Inicio</div>
 
                 <div class="panel-body">
+                    <p><strong>Actualización 05/25/2016: Se ha vencido el plazo para llenar los instrumentos ICAi y Miindex, ya no podrán crearse nuevos o actualizar existentes. </strong></p><br>
                     <p>Bienvenido a la plataforma de gestión de proyectos del Fondo de Fomento a la Innovación y Desarrollo Tecnológico en las Empresas (FFI Caribe).</p>
                     <p>Comience por registrar su empresa en la pestaña “Empresas”, luego llene la siguiente información:</p>
                     <ul>

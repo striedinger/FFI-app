@@ -124,13 +124,13 @@ Route::group(['middleware' => ['web']], function () {
 
 	//IMI
 
-	Route::get('/imi/create/{id}', 'ImiController@create');
+	//Route::get('/imi/create/{id}', 'ImiController@create');
 
-	Route::post('/imi/create/{id}', 'ImiController@create');
+	//Route::post('/imi/create/{id}', 'ImiController@create');
 
 	Route::get('/imi/update/{id}', 'ImiController@update');
 
-	Route::post('/imi/update/{id}', 'ImiController@update');
+	//Route::post('/imi/update/{id}', 'ImiController@update');
 
 	//ACAP
 
@@ -144,12 +144,12 @@ Route::group(['middleware' => ['web']], function () {
 
 	//ICAI
 
-	Route::get('/icai/create/{id}', 'IcaiController@create');
+	//Route::get('/icai/create/{id}', 'IcaiController@create');
 
-	Route::post('/icai/create/{id}', 'IcaiController@create');
+	//Route::post('/icai/create/{id}', 'IcaiController@create');
 
 	Route::get('/icai/update/{id}', 'IcaiController@update');
 
-	Route::post('/icai/update/{id}', 'IcaiController@update');
+	//Route::post('/icai/update/{id}', 'IcaiController@update');
 
 });

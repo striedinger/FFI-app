@@ -52,11 +52,6 @@ class RolesTableSeeder extends Seeder{
 class UsersTableSeeder extends Seeder{
     public function run(){
         DB::table('users')->delete();
-        User::create(['name' => 'Administrador', 'email' => 'striedingerh@uninorte.edu.co', 'password' => Hash::make('mcr4life'), 'role_id' => 1, 'state_id' => 1, 'city' => 'Barranquilla', 'active' => true]);
-        User::create(['name' => 'Asistente', 'email' => 'asistente@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 2, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
-        User::create(['name' => 'Evaluador', 'email' => 'evaluador@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 3, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
-        User::create(['name' => 'Consultor', 'email' => 'consultor@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 4, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
-        User::create(['name' => 'Empresario', 'email' => 'empresario@hotmail.com', 'password' => Hash::make('qwerty'), 'role_id' => 5, 'state_id' => 1,'city' => 'Barranquilla', 'active' => true]);
     }
 }
 

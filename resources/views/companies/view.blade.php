@@ -83,7 +83,7 @@
 							<div class="panel-heading">
 								<span onclick="swal('¿ICAi?', 'El Instrumento de Caracterización de la Actividad Innovadora (ICAI) permite identificar los insumos, productos, resultados y comportamientos derivados de la actividad innovadora de las empresas evaluadas.')">Instrumento ICAi <i class=" glyphicon glyphicon-question-sign"></i></span>
 								@if(count($company->icai)==0)
-								{{--<a href="{{ url('icai/create') . '/' . $company->id }}" class="pull-right"><i class="fa fa-plus"></i></a>--}}
+								<a href="{{ url('icai/create') . '/' . $company->id }}" class="pull-right"><i class="fa fa-plus"></i></a>
 								@endif
 							</div>
 							<div class="panel-body">
@@ -118,7 +118,7 @@
 							<div class="panel-heading">
 								<span onclick="swal('¿Miindex?', 'Es un instrumento diseñado para medir la percepción interna de la cultura de innovación.')">Instrumento Miindex <i class=" glyphicon glyphicon-question-sign"></i></span>
 								@if(count($company->imi)==0)
-								{{--<a href="{{ url('imi/create') . '/' . $company->id }}" class="pull-right"><i class="fa fa-plus"></i></a>--}}
+								<a href="{{ url('imi/create') . '/' . $company->id }}" class="pull-right"><i class="fa fa-plus"></i></a>
 								@endif
 							</div>
 							<div class="panel-body">

@@ -963,11 +963,13 @@
                                 </div>
                             </div>
                         </div>
-                        {{--<div class="col-md-12">
+                        @if(Auth::user()->isAdmin())
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <button class="btn btn-primary pull-right">Actualizar</button>
                             </div>
-                        </div>--}}
+                        </div>
+                        @endif
                     </div>
                 </form>
             </div>

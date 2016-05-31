@@ -98,7 +98,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	//Consultations
 
-	Route::get('consultations/view/{id}', 'ConsultationController@view');
+	Route::get('/consultations/view/{id}', 'ConsultationController@view');
 
 	Route::get('/consultations', 'ConsultationController@index');
 
@@ -130,7 +130,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/imi/update/{id}', 'ImiController@update');
 
-	//Route::post('/imi/update/{id}', 'ImiController@update');
+	Route::post('/imi/update/{id}', 'ImiController@update');
 
 	//ACAP
 
@@ -150,6 +150,6 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/icai/update/{id}', 'IcaiController@update');
 
-	//Route::post('/icai/update/{id}', 'IcaiController@update');
+	Route::post('/icai/update/{id}', 'IcaiController@update');
 
 });

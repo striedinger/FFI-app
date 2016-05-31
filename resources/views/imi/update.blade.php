@@ -47,9 +47,11 @@
 								</tbody>
 							</table>
 						</div>
-						{{--<div class="form-group">
+						@if(Auth::user()->isAdmin())
+						<div class="form-group">
 							<button class="btn btn-primary pull-right">Actualizar</button>
-						</div>--}}
+						</div>
+						@endif
 					</form>
 				</div>
 			</div>

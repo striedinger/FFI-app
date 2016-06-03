@@ -41,7 +41,7 @@
 				<label><input type="radio" name="time" value="{{ $time->id }}" checked>{{ date_format(date_create($time->time), "h:i A d/m/y") }}</label>
 			</div>
 			@endforeach
-			@if(!Auth::user()->isAdmin() && !Auth::user()->hasAppointmentInConsultation($consultation) && count($companies)>0)
+			@if(!Auth::user()->isAdmin() && !Auth::user()->hasAppointmentInConsultation($consultation) && count($companies)>0 && $consultation->active)
 			<button type="submit" class="btn btn-primary" onclick="return confirm('¿Deseas agendar tu cita para sesion en la hora seleccionada?')"><i class="fa fa-book"></i> Agendar</button>
 			@endif
 		{!! Form::close() !!}

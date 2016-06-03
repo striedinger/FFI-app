@@ -13,7 +13,7 @@
 @endif
 <div class="row">
 	@foreach($consultations as $consultation)
-	<div class="col-xs-12 col-sm-6">
+	<div class="col-xs-12">
 		<div class="panel {{ $consultation->active ? 'panel-success' : 'panel-danger' }}">
 			<div class="panel-heading">
 				{{ $consultation->state->name }}: {{ date_format(date_create($consultation->start_date), "h:i A d/m/y") }} - {{ date_format(date_create($consultation->end_date), "h:i A d/m/y") }}

@@ -16,7 +16,9 @@ class CreateAppointmentsTable extends Migration
             $table->increments('id');
             $table->datetime('date');
             $table->integer('user_id')->unsigned();
+            $table->integer('company_id')->unsigned();
             $table->integer('assistant_id')->unsigned()->nullable();
+            $table->integer('consultation_time_id')->unsigned()->nullable();
             $table->text('user_comment')->nullable();
             $table->text('assistant_comment')->nullable();
             $table->string('status');
@@ -25,7 +27,9 @@ class CreateAppointmentsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreign('assistant_id')->references('id')->on('users');
+            $table->foreign('consultation_time_id')->references('id')->on('consultation_times');
         });
     }
 

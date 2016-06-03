@@ -14,9 +14,12 @@
 <div class="row">
 	@foreach($consultations as $consultation)
 	<div class="col-xs-12 col-sm-6">
-		<div class="panel panel-default">
+		<div class="panel {{ $consultation->active ? 'panel-success' : 'panel-danger' }}">
 			<div class="panel-heading">
 				{{ $consultation->state->name }}: {{ date_format(date_create($consultation->start_date), "h:i A d/m/y") }} - {{ date_format(date_create($consultation->end_date), "h:i A d/m/y") }}
+				@can('update', $consultation)
+				<a href=" {{ url('/consultations/update') . '/' . $consultation->id }}" class="pull-right">Editar</a>
+				@endcan
 			</div>
 			<div class="panel-body">
 				<p><strong>Asesor: </strong><a href="{{ url('users/view') . '/' . $consultation->user->id }}">{{$consultation->user->name}}</a></p>

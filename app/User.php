@@ -79,4 +79,23 @@ class User extends Authenticatable
     public function consultations(){
         return $this->hasMany(Consultation::class);
     }
+
+    public function hasAppointmentInConsultation($consultation){
+        $appointments = Appointment::where(['user_id' => $this->id])->whereHas('consultationTime', function($q) use($consultation){
+            $q->where(['consultation_id' => $consultation->id, 'active' => true]);
+        })->count();
+        if($appointments>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function appointments(){
+        return $this->hasMany(Appointment::class, 'user_id');
+    }
+
+    public function assistant_appointments(){
+        return $this->hasMany(Appointment::class, 'assistant_id');
+    }
 }

@@ -104,6 +104,9 @@ class CompanyController extends Controller
                 $company->city = $request->city;
                 $company->state_id = $request->state;
                 $company->address = $request->address;
+                if($request->has('priority') && $request->user()->isAdmin()){
+                    $company->priority = $request->priority;
+                }
                 $company->save();
                 $request->session()->flash('status', 'Su empresa ha sido actualizada');
                 return redirect('/companies/view/' . $company->id);

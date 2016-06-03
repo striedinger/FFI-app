@@ -25,24 +25,9 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'DashboardController@index');
     
-	/*Route::get('/test', function(){
-		$ciius= file_get_contents(storage_path('CIIU.txt'));
-		$ciius = explode(";", $ciius);
-		foreach($ciius as $ciiu){
-			echo $ciiu . "<br>";
-		}
-		/*$id = "ceo@camilovera.com.co";
-		$emails = file_get_contents(storage_path('ffiemails.txt'));
-		$emails = explode(",", $emails);
-		if(in_array($id, $emails)){
-			echo "Match found";
-		}else{
-			echo "Not found..";
-		}
-		foreach($emails as $email){
-			echo strtolower($email) . "<br>";
-		}*/
-	/*});*/
+	Route::get('/test', function(){
+		
+	});
 
 	Route::auth();
 
@@ -110,6 +95,8 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::post('/consultations/update/{id}', 'ConsultationController@update');
 
+	Route::post('/consultations/appointment', 'ConsultationController@appointment');
+
 	//Canvases
 
 	Route::get('/canvas/create/{id}', 'CanvasController@create');
@@ -151,5 +138,15 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/icai/update/{id}', 'IcaiController@update');
 
 	Route::post('/icai/update/{id}', 'IcaiController@update');
+
+	//Citas
+
+	Route::get('/appointments', 'AppointmentController@index');
+
+	Route::get('/appointments/view/{id}', 'AppointmentController@view');
+
+	Route::get('/appointments/update/{id}', 'AppointmentController@update');
+
+	Route::post('/appointments/update/{id}', 'AppointmentController@update');
 
 });

@@ -20,6 +20,10 @@ class CompanyRepository
         return Company::where(['id' => $id])->first();
     }
 
+    public function forPriorityId($id){
+        return Company::where(['id' => $id, 'priority' => true])->first();
+    }
+
     public function forUser(User $user)
     {
         return Company::where('user_id', $user->id)->paginate(100);
@@ -27,6 +31,10 @@ class CompanyRepository
 
     public function listForUser(User $user){
         return Company::where(['user_id' => $user->id, 'active' => true])->lists('name', 'id');
+    }
+
+    public function priorityListForUser(User $user){
+        return Company::where(['user_id' => $user->id, 'active' => true, 'priority' => true])->lists('name', 'id');
     }
 
     public function searchByQuery($query){

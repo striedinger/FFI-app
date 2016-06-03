@@ -13,7 +13,7 @@ class ConsultationPolicy
     use HandlesAuthorization;
 
     public function update($user, $consultation){
-    	return true;
+    	return $user->isAdmin();
     }
 
 }

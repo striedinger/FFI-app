@@ -15,7 +15,13 @@ use App\Repositories\StateRepository;
 
 use App\Repositories\ConsultationRepository;
 
+use App\Repositories\AppointmentRepository;
+
+use App\Repositories\CompanyRepository;
+
 use App\ConsultationTime;
+
+use App\Appointment;
 
 use DateTime;
 
@@ -28,12 +34,20 @@ class ConsultationController extends Controller
 
     protected $consultations;
 
-	public function __construct(ConsultationRepository $consultations, UserRepository $users, StateRepository $states){
+    protected $appointments;
+
+    protected $companies;
+
+	public function __construct(ConsultationRepository $consultations, UserRepository $users, StateRepository $states, AppointmentRepository $appointments, CompanyRepository $companies){
 		$this->middleware('auth');
 
         $this->consultations = $consultations;
 
         $this->states = $states;
+
+        $this->appointments = $appointments;
+
+        $this->companies = $companies;
 
 		$this->users = $users;
 	}
@@ -42,16 +56,46 @@ class ConsultationController extends Controller
         if($request->user()->isAdmin()){
             $consultations = $this->consultations->allAdmin();
         }else{
-            $consultations = $this->consultations->all();
+            $consultations = $this->consultations->all($request->user()->state);
         }
         return view('consultations.index', ['consultations' => $consultations]);
     }
 
     public function view(Request $request, $id){
         if($consultation = $this->consultations->forId($id)){
-            return view('consultations.view', ['consultation' => $consultation]);
+            $appointments = $this->appointments->forConsultation($consultation);
+            $companies = $this->companies->priorityListForUser($request->user());
+            return view('consultations.view', ['consultation' => $consultation, 'appointments' => $appointments, 'companies' => $companies]);
         }else{
             abort(404);
+        }
+    }
+
+    public function appointment(Request $request){
+        if($request->user()->hasRole('5')){
+            if(($consultation_time = ConsultationTime::find($request->time)) && ($company = $this->companies->forPriorityId($request->company))){
+                if($consultation_time->available){
+                    $consultation_time->available = false;
+                    $consultation_time->save();
+                    $request->user()->appointments()->create([
+                        'date' => $consultation_time->time,
+                        'assistant_id' => $consultation_time->consultation->user->id,
+                        'consultation_time_id' => $consultation_time->id,
+                        'status' => 'Aprobada',
+                        'active' => true,
+                        'company_id' => $company->id
+                    ]);
+                    $request->session()->flash('status', 'Su cita ha sido programada');
+                    return redirect('/appointments');
+                }else{
+                    $request->session()->flash('status', 'La hora que escogio no se encuentra disponible');
+                    return redirect('/consultations/view/' . $consultation_time->consultation_id);
+                }
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(403, "Usuario no autorizado");
         }
     }
 
@@ -110,6 +154,11 @@ class ConsultationController extends Controller
                     $consultation->active = $request->active;
                 }
                 $consultation->save();
+                $appointments = $this->appointments->forConsultation($consultation);
+                foreach($appointments as $appointment){
+                    $appointment->assistant_id = $request->user_id;
+                    $appointment->save();
+                }
                 $request->session()->flash('status', 'Su sesion de citas ha sido actualizada');
                 return redirect('/consultations/update/' . $consultation->id);
             }

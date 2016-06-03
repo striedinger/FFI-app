@@ -59,6 +59,15 @@
                             </span>
                         @endif
 					</div>
+					@if(Auth::user()->isAdmin())
+					<div class="form-group">
+						<label>Priorizada</label>
+						<select class="form-control" name="priority">
+							<option value="0" @if($company->priority==0) echo selected @endif>No</option>
+							<option value="1" @if($company->priority==1) echo selected @endif>Si</option>
+						</select>
+					</div>
+					@endif
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary btn-block">Actualizar</button>
 					</div>

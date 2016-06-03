@@ -8,12 +8,12 @@ use App\Consultation;
 class ConsultationRepository
 {
 
-	public function all(){
-		return Consultation::where(['active' => true])->paginate(100);
+	public function all($state){
+		return Consultation::where(['active' => true, 'state_id' => $state->id])->orderBy('end_date', 'desc')->paginate(100);
 	}
 
 	public function allAdmin(){
-		return Consultation::paginate(100);
+		return Consultation::orderBy('end_date', 'desc')->paginate(100);
 	}
 
     public function forId($id)

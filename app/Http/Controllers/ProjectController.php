@@ -69,7 +69,7 @@ class ProjectController extends Controller
     		$this->validate($request, [
     			'name' => 'required|max:255',
                 'description' => 'required',
-                'amount' => 'required',
+                'amount' => 'required|numeric',
                 'term' => 'required',
                 'company' => 'required'
     		]);
@@ -97,7 +97,7 @@ class ProjectController extends Controller
                 $validator = $this->validate($request, [
                     'name' => 'required|max:255',
                     'description' => 'required',
-                    'amount' => 'required'
+                    'amount' => 'required|numeric'
                 ]);
                 $project->name = $request->name;
                 $project->description = $request->description;

@@ -15,7 +15,7 @@ class Company extends Model
 
 	protected $dates = ['deleted_at'];
 
-    protected $fillable = ['name', 'nit', 'description', 'state_id', 'city', 'address', 'active'];
+    protected $fillable = ['name', 'nit', 'description', 'state_id', 'city', 'address', 'active', 'priority'];
 
     protected $searchable = [
         'columns' => [

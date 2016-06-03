@@ -21,7 +21,6 @@
 				<label>Duracion</label>
 				<select class="form-control" name="duration">
 					<option value="30">30 minutos</option>
-					<option value="60">45 minutos (+15 descanso)</option>
 					<option value="60">60 minutos</option>
 				</select>
 				@if ($errors->has('duration'))

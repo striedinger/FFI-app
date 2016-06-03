@@ -4,6 +4,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Actualizar Sesion de Citas
+		<a class="pull-right" href="{{ url('/consultations/view') . '/' . $consultation->id }}">Ver</a>
 	</div>
 	<div class="panel-body">
 		<form method="post">

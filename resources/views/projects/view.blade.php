@@ -20,7 +20,7 @@
 			</div>
 			<div class="form-group">
 				<label>Monto Solicitado</label>
-				<p>${{ $project->amount }} COP</p>
+				<p>${{ number_format($project->amount) }} COP</p>
 			</div>
 			<div class="form-group">
 				<label>Empresa</label>
@@ -53,11 +53,11 @@
 						@if(Auth::user()->id==$comment->user_id)
 						{!! Form::open(['action' => array('ProjectCommentController@destroy', $comment->id), 'method' => 'post'])!!}
 							{{ method_field('DELETE') }}
-							<button type="submit" class="pull-right close">&times;</button>
+							<button type="submit" class="pull-right close" onclick="return confirm('¿Esta seguro de querer borrar el comentario?');">&times;</button>
 						{!! Form::close() !!}
 						@endif
 						<p>{{ $comment->comment }}</p>	
-						<small>{{ $comment->created_at }} por <a href="{{ url('users/view') . '/' . $comment->user->id }}">{{ $comment->user->name }}</a></small>
+						<small>{{ date_format(date_create($comment->created_at), "h:i A d/m/y") }} por <a href="{{ url('users/view') . '/' . $comment->user->id }}">{{ $comment->user->name }}</a></small>
 					</div>
 					@endforeach
 				</div>

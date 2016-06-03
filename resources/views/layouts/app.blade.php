@@ -112,6 +112,17 @@
                         {{--<li>
                             <a href="{{ url('/projects') }}"><i class="fa fa-book fa-fw"></i> Proyectos</a>
                         </li>--}}
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#appointments"><i class="fa fa-fw fa-calendar"></i> Citas <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level" id="appointments">
+                                <li>
+                                    <a href="{{ url('/appointments') }}">Mis Citas</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/consultations') }}">Sesiones de Citas</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

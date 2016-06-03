@@ -58,7 +58,7 @@ return [
         'array'   => ':attribute debe tener al menos :min elementos.',
     ],
     'not_in'               => ':attribute es inválido.',
-    'numeric'              => ':attribute debe ser numérico.',
+    'numeric'              => 'El campo debe ser numérico.',
     'present'              => 'El campo :attribute debe estar presente.',
     'regex'                => 'El formato de :attribute es inválido.',
     'required'             => 'El campo es obligatorio.', //El campo :attribute es obligatorio.

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/appointments') }}">Citas</a></li>
+    <li class="active">Ver Cita</li>
+</ol>
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Cita de <a href="{{ url('users/view') . '/' . $appointment->user->id }}">{{ $appointment->user->name }}</a>

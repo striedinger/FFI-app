@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/companies') }}">Empresas</a></li>
+    <li><a href="{{ url('/companies') . '/view/' . $company->id }}">{{ $company->name }}</a></li>
+    <li class="active">Crear ICAi</li>
+</ol>
 <div>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">ICAi - <a href="{{ url('/companies/view') . '/' . $company->id }}">{{ $company->name }}</a></div>
+            <div class="panel-heading">ICAi</div>
             <div class="panel-body">
                 <form method="POST">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />

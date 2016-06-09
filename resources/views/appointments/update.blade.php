@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/appointments') }}">Citas</a></li>
+    <li><a href="{{ url('/appointments') . '/view/' . $appointment->id }}">Cita</a></li>
+    <li class="active">Editar Cita</li>
+</ol>
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Actualizar Cita de <a href="{{ url('users/view') . '/' . $appointment->user->id }}">{{ $appointment->user->name }}</a>
-		<a class="pull-right" href="{{ url('/appointments/view') . '/' . $appointment->id }}">Ver</a>
 	</div>
 	<div class="panel-body">
 		<form method="post">

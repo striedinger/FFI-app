@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/companies') }}">Empresas</a></li>
+  <li><a href="{{ url('/companies') . '/view/' . $company->id }}">{{ $company->name }}</a></li>
+  <li class="active">Crear Miindex</li>
+</ol>
 <div>
 	<div>
 		<div class="panel panel-default">

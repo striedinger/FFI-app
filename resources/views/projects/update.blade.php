@@ -1,18 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/projects') }}">Proyectos</a></li>
+    <li><a href="{{ url('/projects') . '/view/' . $project->id }}">Proyecto</a></li>
+    <li class="active">Editar Proyecto</li>
+</ol>
 <div>
 	<div>
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Empresa
+				Proyecto
 			</div>
 			<div class="panel-body">
 				<form method="POST">
 					<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 					<div class="form-group">
 						<label>Empresa</label>
-						<p>{{ $project->company->name }}</p>
+						<p><a href="{{ url('/companies') . '/view/' . $project->company->id }}">{{ $project->company->name }}</a></p>
 					</div>
 					<div class="form-group">
 						<label>Convocatoria</label>

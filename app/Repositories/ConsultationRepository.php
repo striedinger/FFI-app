@@ -25,7 +25,9 @@ class ConsultationRepository
     }
 
     public function forState($id){
-    	return Consultation::where(['state_id' => $id, 'active' => true])->get();
+        $date = new DateTime();
+        $date->setTime(0,0,0);
+    	return Consultation::where(['state_id' => $id, 'active' => true, ['end_date', '>=', $date]])->orderBy('end_date', 'desc')->get();
     }
 
     public function forAdminState($id){

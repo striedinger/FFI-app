@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/companies') }}">Empresas</a></li>
+    <li><a href="{{ url('/companies') . '/view/' . $company->id }}">{{ $company->name }}</a></li>
+    <li class="active">Crear Canvas</li>
+</ol>
 <div>
 	<div>
 		<div class="panel panel-default">
@@ -10,10 +15,6 @@
 			<div class="panel-body">
 				<form method="POST">
 					<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-					<div class="form-group">
-						<label>Empresa</label>
-						<p><a href="{{ url('/companies/view') . '/' . $company->id }}">{{ $company->name }}</a></p>
-					</div>
 					<div class="form-group">
 						<label onclick="swal({title: 'Por Ejemplo:', html: '- ¿Cuáles son las características de los consumidores / clientes?<br>- Si el mercado es empresarial, ¿cuáles son las características de las empresas clientes?<br>- ¿Quiénes son tus clientes?<br>- ¿Quiénes son los consumidores finales de tu producto o servicio?<br>- ¿Quién decide el consumo de sus productos o servicios?'})">Segmentos de Clientes <span class="fa fa-question-circle"></span></label>
 						<textarea class="form-control" name="customer_segments" placeholder="Segmentos de Clientes">{{ old('customer_segments') }}</textarea>

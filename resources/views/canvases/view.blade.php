@@ -31,13 +31,16 @@
 	}
 
 </style>
+<ol class="breadcrumb">
+    <li><a href="{{ url('/companies') }}">Empresas</a></li>
+    <li><a href="{{ url('/companies') . '/view/' . $canvas->company->id }}">{{ $canvas->company->name }}</a></li>
+    <li class="active">Ver Canvas</li>
+    @can('update', $canvas)
+    <li><a href=" {{ url('/canvas/update') . '/' . $canvas->id }}" class="pull-right">Editar</a></li>
+    @endcan
+</ol>
 <div id="canvasContainer">
 	<div class="col-sm-12">
-		<p><strong>Empresa: </strong><a href="{{ url('/companies/view') . '/' . $canvas->company_id }}">{{ $canvas->company->name }}</a>
-		@can('update', $canvas)
-			<a href=" {{ url('/canvas/update') . '/' . $canvas->id }}" class="pull-right">Editar</a>
-		@endcan
-		</p>
 		<table id="bizcanvas" cellspacing="0" border="1">
 			<!-- Upper part -->
 			<tr>

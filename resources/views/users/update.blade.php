@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+	@if(Auth::user()->isAdmin())
+  	<li><a href="{{ url('/users') }}">Usuarios</a></li>
+  	@endif
+  	<li><a href="{{ url('/users') . '/view/' . $user->id }}">{{ $user->name }}</a></li>
+  	<li class="active">Editar Usuario</li>
+</ol>
 <div>
 	<div>
 		<div class="panel panel-default">

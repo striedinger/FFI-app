@@ -26,7 +26,7 @@
 				@endcan
 			</div>
 			<div class="panel-body">
-				<p><strong>Asesor: </strong><a href="{{ url('users/view') . '/' . $consultation->user->id }}">{{$consultation->user->name}}</a></p>
+				<p><strong>Asesor: </strong>{{$consultation->user->name}}</p>
 				<p><strong>Duracion de sesion: </strong>{{ $consultation->duration }} minutos</p>
 				<p><strong>Lugar: </strong>{{ $consultation->location }}</p>
 				<a href="{{ url('consultations/view') . '/' . $consultation->id }}">Ver Más</a>

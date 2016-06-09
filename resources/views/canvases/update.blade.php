@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/companies') }}">Empresas</a></li>
+    <li><a href="{{ url('/companies') . '/view/' . $canvas->company->id }}">{{ $canvas->company->name }}</a></li>
+    <li><a href="{{ url('/canvas') . '/view/' . $canvas->id }}">Canvas</a></li>
+    <li class="active">Editar Canvas</li>
+</ol>
 <div>
 	<div>
 		<div class="panel panel-default">

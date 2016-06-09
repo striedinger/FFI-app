@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/users') }}">Usuarios</a></li>
+    <li class="active">Buscar Usuario</li>
+</ol>
 <div class="panel panel-default">
     <div class="panel-heading">
         Buscar Usuarios

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/companies') }}">Empresas</a></li>
+  <li><a href="{{ url('/companies') . '/view/' . $imi->company->id }}">{{ $imi->company->name }}</a></li>
+  <li class="active">Editar Miindex</li>
+</ol>
 <div>
 	<div>
 		<div class="panel panel-default">
@@ -8,10 +13,6 @@
 				Instrumento de Medicion de la Innovacón
 			</div>
 			<div class="panel-body">
-				<div class="form-group">
-					<label>Empresa</label>
-					<p><a href="{{ url('/companies/view') . '/' . $imi->company_id }}">{{ $imi->company->name }}</a></p>
-				</div>
 				<div class="col-sm-12">
 					<div class="col-sm-12 col-md-6 col-md-offset-3">
 						<canvas id="myChart" width="300" height="300"></canvas>

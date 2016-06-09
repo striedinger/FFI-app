@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/projects') }}">Proyectos</a></li>
+    <li class="active">Ver Proyecto</li>
+</ol>
 <div>
 	<div class="panel panel-default">
 		<div class="panel-heading">

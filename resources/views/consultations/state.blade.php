@@ -5,11 +5,11 @@
 <div class="form-group">
 	<a href="{{ url('consultations/create') }}" class="btn btn-default"><i class="fa fa-plus"></i> Agendar Sesion Nueva</a>
 </div>
+@endif
 <div class="breadcrumb">
 	<li><a href="{{ url('consultations/') }}">Ver Todos </a></li>
 	<li>{{ $state->name }}</li>
 </div>
-@endif
 @if(count($consultations)==0)
 <div class="text-center">
 	<p>No hay sesiones de citas en este departamento, intenta en otra ocasion.</p>

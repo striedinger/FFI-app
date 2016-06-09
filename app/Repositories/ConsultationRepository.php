@@ -25,7 +25,11 @@ class ConsultationRepository
     }
 
     public function forState($id){
-    	return Consultation::where(['state_id' => $id])->get();
+    	return Consultation::where(['state_id' => $id, 'active' => true])->get();
+    }
+
+    public function forAdminState($id){
+        return Consultation::where(['state_id' => $id])->get();
     }
 
     public function forUser($id){

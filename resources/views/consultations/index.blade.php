@@ -5,15 +5,13 @@
 <div class="form-group">
 	<a href="{{ url('consultations/create') }}" class="btn btn-default"><i class="fa fa-plus"></i> Agendar Sesion Nueva</a>
 </div>
-@endif
 <div class="breadcrumb">
 	@foreach($states as $state)
 	<li><a href="{{ url('consultations/state') . '/' . $state->id }}">{{ $state->name }} </a></li>
 	@endforeach
-	@if(Auth::user()->isAdmin())
 	<li><a href="{{ url('consultations/me') }}">Mis Sesiones</a></li>
-	@endif
 </div>
+@endif
 @if(count($consultations)==0)
 <div class="text-center">
 	<p>No hay sesiones de citas activas en este momento, intenta en otra ocasion.</p>

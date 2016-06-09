@@ -63,15 +63,19 @@ class ConsultationController extends Controller
     }
 
     public function state(Request $request, $id){
-        if($state = $this->states->forId($id)){
-            if($request->user()->isAdmin()){
-                $consultations = $this->consultations->forAdminState($state->id);
+        if($request->user()->isAdmin()){
+            if($state = $this->states->forId($id)){
+                if($request->user()->isAdmin()){
+                    $consultations = $this->consultations->forAdminState($state->id);
+                }else{
+                    $consultations = $this->consultations->forState($state->id);
+                }
+                return view('consultations.state', ['consultations' => $consultations, 'state' => $state]);
             }else{
-                $consultations = $this->consultations->forState($state->id);
+                abort(404);
             }
-            return view('consultations.state', ['consultations' => $consultations, 'state' => $state]);
         }else{
-            abort(404);
+            abort(403, 'Usuario no autorizado');
         }
     }
 

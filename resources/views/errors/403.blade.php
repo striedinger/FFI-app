@@ -3,6 +3,7 @@
 <head>
     <title>FFI Caribe - No Autorizado</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <style>
         .error {
           margin: 0 auto;
@@ -43,8 +44,8 @@
             <div class="error-desc">
                 Lo sentimos, pero usted no se encuentra autorizado para ver la pagina que esta solicitando. <br>
                 Si cree que esto es un error, por favor contacte a un administrador.
-                <div>
-                    <a class="login-detail-panel-button btn" href="{{ url('/') }}">
+                <div style="padding:20px">
+                    <a class="btn btn-default" href="{{ url('/') }}">
                         <i class="fa fa-arrow-left"></i>
                         Volver al inicio                      
                     </a>

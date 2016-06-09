@@ -21,7 +21,7 @@
 		<p><strong>Departamento: </strong>{{ $consultation->state->name }}</p>
 		<p><strong>Fecha: </strong>{{ date_format(date_create($consultation->start_date), "h:i A d/m/y") }} - {{ date_format(date_create($consultation->end_date), "h:i A d/m/y") }}</p>
 		<p><strong>Lugar: </strong>{{ $consultation->location }}</p>
-		<p><strong>Asesor: </strong><a href="{{ url('users/view') . '/' . $consultation->user->id }}">{{$consultation->user->name}}</a></p>
+		<p><strong>Asesor: </strong>{{$consultation->user->name}}</p>
 		<p><strong>Duracion de sesion: </strong>{{ $consultation->duration }} minutos</p>
 		<p><strong>Descripcion: </strong>{{ $consultation->description }}</p>
 		@if(count($consultation->availableTimes)==0)

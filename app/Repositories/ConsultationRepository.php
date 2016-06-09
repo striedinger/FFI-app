@@ -23,4 +23,12 @@ class ConsultationRepository
     {
         return Consultation::where(['id' =>$id])->first();
     }
+
+    public function forState($id){
+    	return Consultation::where(['state_id' => $id])->get();
+    }
+
+    public function forUser($id){
+        return Consultation::where(['user_id' => $id])->get();
+    }
 }

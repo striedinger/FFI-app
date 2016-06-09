@@ -36,6 +36,7 @@
             @endif
 		</div>
 		<p><strong>Horas disponibles:</strong></p>
+			<small>Seleccione la hora que más le convenga</small>
 			@foreach($consultation->availableTimes as $time)
 			<div class="radio">
 				<label><input type="radio" name="time" value="{{ $time->id }}" checked>{{ date_format(date_create($time->time), "h:i A d/m/y") }}</label>

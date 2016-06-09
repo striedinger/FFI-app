@@ -26,7 +26,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'DashboardController@index');
     
 	Route::get('/test', function(){
-		
+		/*$nits= file_get_contents(storage_path('NITS.txt'));
+		$nits = explode(",", $nits);
+		foreach($nits as $nit){
+			echo "UPDATE companies SET priority = true WHERE nit = '$nit';" . "<br>";
+		}*/
 	});
 
 	Route::auth();
@@ -86,6 +90,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/consultations/view/{id}', 'ConsultationController@view');
 
 	Route::get('/consultations', 'ConsultationController@index');
+
+	Route::get('/consultations/state/{id}', 'ConsultationController@state');
+
+	Route::get('/consultations/me', 'ConsultationController@me');
 
 	Route::get('/consultations/create', 'ConsultationController@create');
 

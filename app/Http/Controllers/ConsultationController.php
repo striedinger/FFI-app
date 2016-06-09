@@ -58,7 +58,30 @@ class ConsultationController extends Controller
         }else{
             $consultations = $this->consultations->all($request->user()->state);
         }
-        return view('consultations.index', ['consultations' => $consultations]);
+        $states = $this->states->getAll();
+        return view('consultations.index', ['consultations' => $consultations, 'states' => $states]);
+    }
+
+    public function state(Request $request, $id){
+        if($request->user()->isAdmin()){
+            if($state = $this->states->forId($id)){
+                $consultations = $this->consultations->forState($state->id);
+                return view('consultations.state', ['consultations' => $consultations, 'state' => $state]);
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(403, 'Usuario no autorizado');
+        }
+    }
+
+    public function me(Request $request){
+        if($request->user()->isAdmin()){
+            $consultations = $this->consultations->forUser($request->user()->id);
+            return view('consultations.me', ['consultations' => $consultations]);
+        }else{
+            abort(403, 'Usuario no autorizado');
+        }
     }
 
     public function view(Request $request, $id){

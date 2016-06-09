@@ -124,7 +124,7 @@ class ConsultationController extends Controller
                         'time' => $intervalDate
                     ]);
                     $intervalDate->add(new \DateInterval('PT'.$request->duration.'M'));
-
+                    $intervalDate->add(new \DateInterval('PT'.$request->interval.'M'));
                 }
 
                 $request->session()->flash('status', 'Su sesion de citas ha sido registrada');

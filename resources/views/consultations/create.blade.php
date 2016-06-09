@@ -20,8 +20,21 @@
 			<div class="form-group">
 				<label>Duracion</label>
 				<select class="form-control" name="duration">
-					<option value="30">30 minutos</option>
+					<option value="45">45 minutos</option>
 					<option value="60">60 minutos</option>
+				</select>
+				@if ($errors->has('duration'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('duration') }}</strong>
+                </span>
+                @endif
+			</div>
+			<div class="form-group">
+				<label>Intervalo</label>
+				<select class="form-control" name="interval">
+					<option value="0">0 minutos</option>
+					<option value="15">15 minutos</option>
+					<option value="30">30 minutos</option>
 				</select>
 				@if ($errors->has('duration'))
                 <span class="help-block">

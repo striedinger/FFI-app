@@ -90,6 +90,7 @@ class ConsultationController extends Controller
 
     public function view(Request $request, $id){
         if($consultation = $this->consultations->forId($id)){
+            $this->authorize('view', $consultation);
             $appointments = $this->appointments->forConsultation($consultation);
             $companies = $this->companies->priorityListForUser($request->user());
             return view('consultations.view', ['consultation' => $consultation, 'appointments' => $appointments, 'companies' => $companies]);

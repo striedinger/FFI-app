@@ -16,4 +16,12 @@ class ConsultationPolicy
     	return $user->isAdmin();
     }
 
+    public function view($user, $consultation){
+    	if($user->isAdmin()){
+    		return true;
+    	}else{
+    		return $user->state_id == $consultation->state_id && $consultation->active;
+    	}
+    }
+
 }

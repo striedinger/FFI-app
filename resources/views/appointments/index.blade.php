@@ -19,6 +19,7 @@
                         <th>Usuario</th>
                         <th>Empresa</th>
                         <th>Asesor</th>
+                        <th>Departamento</th>
                         <th>Estado</th>
                         <th>Acción</th>
                     </thead>
@@ -30,6 +31,7 @@
                             <td class="table-text"><a href="{{ url('users/view') . '/' . $appointment->user->id }}">{{$appointment->user->name}}</a></td>
                             <td class="table-text"><a href="{{ url('companies/view') . '/' . $appointment->company->id }}">{{$appointment->company->name}}</a></td>
                             <td class="table-text">{{$appointment->assistant->name}}</td>
+                            <td class="table-text">{{ $appointment->company->state->name }}</td>
                             <td class="table-text">{{$appointment->status}}</td>
                             <td class="table-text"><a href="{{ url('appointments/view') . '/' . $appointment->id }}">Ver</a></td>
                         </tr>

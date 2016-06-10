@@ -47,7 +47,7 @@
 			</div>
 			@endforeach
 			@if(!Auth::user()->isAdmin() && !Auth::user()->hasAppointmentInConsultation($consultation) && count($companies)>0 && $consultation->active)
-			<button type="submit" class="btn btn-primary" onclick="return confirm('¿Deseas agendar tu cita para sesion en la hora seleccionada?')"><i class="fa fa-book"></i> Agendar</button>
+			<button type="submit" class="btn btn-primary" onclick="return confirm('¿Deseas agendar tu cita en la hora seleccionada?')"><i class="fa fa-book"></i> Agendar</button>
 			@endif
 		{!! Form::close() !!}
 		@endif

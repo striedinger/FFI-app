@@ -22,10 +22,10 @@ class Consultation extends Model
 	}
 
 	public function availableTimes(){
-		return $this->hasMany(ConsultationTime::class)->where(['available' => true]);
+		return $this->hasMany(ConsultationTime::class)->where(['available' => true])->orderBy('time', 'asc');
 	}
 
 	public function times(){
-		return $this->hasMany(ConsultationTime::class);
+		return $this->hasMany(ConsultationTime::class)->orderBy('time', 'asc');
 	}
 }

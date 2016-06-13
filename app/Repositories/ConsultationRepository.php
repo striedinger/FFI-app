@@ -16,7 +16,7 @@ class ConsultationRepository
 	}
 
 	public function allAdmin(){
-		return Consultation::orderBy('end_date', 'desc')->paginate(100);
+		return Consultation::orderBy('end_date', 'desc')->orderBy('end_date', 'desc')->paginate(100);
 	}
 
     public function forId($id)
@@ -31,7 +31,7 @@ class ConsultationRepository
     }
 
     public function forAdminState($id){
-        return Consultation::where(['state_id' => $id])->get();
+        return Consultation::where(['state_id' => $id])->orderBy('end_date', 'desc')->get();
     }
 
     public function forUser($id){

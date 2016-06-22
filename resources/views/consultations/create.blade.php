@@ -89,7 +89,7 @@
 				<div class="col-xs-12 col-md-6 form-group">
 					<label>Fecha de Fin</label>
 					<div class="input-group date">
-						<input type="date" class="form-control datetimepicker" name="end_date" id="end_date">
+						<input type="input" class="form-control datetimepicker" name="end_date" id="end_date">
 						<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 					</div>
 					@if ($errors->has('end_date'))

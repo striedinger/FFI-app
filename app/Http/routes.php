@@ -33,6 +33,10 @@ Route::group(['middleware' => ['web']], function () {
 		}*/
 	});
 
+	Route::get('convocatoria-evaluadores', function(){
+		return view('convocatoria-evaluadores', []);
+	});
+
 	Route::auth();
 
 	//Users

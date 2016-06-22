@@ -17,6 +17,12 @@
                 <p>{{ Session::get('status') }}</p>
             </div>
             @endif
+            <div class="alert alert-info" align="center">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p>Se encuentra abierta la convocatoria para ser evaluador de los proyectos presentados en el Fondo de Fomento a la Innovación y Desarrollo Tecnológico en las  Empresas del SENA. Para aplicar llene el formulario <a href="{{ url('convocatoria-evaluadores') }}">aquí</a></p>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">Iniciar Sesión <span class="pull-right"><a href="{{ url('/register') }}">Registrate</a></span></div>
                 <div class="panel-body">

@@ -28,12 +28,21 @@ Gasto
 			</div>
 			<div class="form-group">
 				<label>Rubro</label>
-				{{ Form::select('cost_category_id', $costCategories, $cost->cost_category_id, ['class' => 'form-control']) }}
+				<div style="height:150px;overflow:auto;padding:10px" class="well">
+				@foreach($costCategories as $costCategory)
+					<div class="radio">
+						<label>
+							<input type="radio" value="{{ $costCategory->id }}" name="cost_category_id" @if($cost->costCategory->id == $costCategory->id) echo checked @endif>
+							{{ $costCategory->name }}
+						</label>
+					</div>
+				@endforeach
+				</div>
 				@if ($errors->has('cost_category_id'))
-				<span class="help-block">
-					<strong>{{ $errors->first('cost_category_id') }}</strong>
-				</span>
-				@endif
+                <span class="help-block">
+                    <strong>{{ $errors->first('cost_category_id') }}</strong>
+                </span>
+                @endif
 			</div>
 			<div class="row">
 				<div class="col col-xs-12 col-sm-6">

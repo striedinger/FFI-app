@@ -21,7 +21,7 @@ class AppointmentPolicy
     }
 
     public function update($user, $appointment){
-        if($user->isSuperAdmin()){
+        if($user->isAdmin()){
             return true;
         }else{
             return $appointment->assistant_id == $user->id;

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Usuario
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
 	@if(Auth::user()->isAdmin())

@@ -22,6 +22,14 @@ use App\Consultation;
 use App\Policies\ConsultationPolicy;
 use App\Appointment;
 use App\Policies\AppointmentPolicy;
+use App\Product;
+use App\Policies\ProductPolicy;
+use App\Activity;
+use App\Policies\ActivityPolicy;
+use App\Entity;
+use App\Policies\EntityPolicy;
+use App\Cost;
+use App\Policies\CostPolicy;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -44,7 +52,11 @@ class AuthServiceProvider extends ServiceProvider
         Icai::class => IcaiPolicy::class,
         ProjectComment::class => ProjectCommentPolicy::class,
         Consultation::class => ConsultationPolicy::class,
-        Appointment::class => AppointmentPolicy::class
+        Appointment::class => AppointmentPolicy::class,
+        Product::class => ProductPolicy::class,
+        Activity::class => ActivityPolicy::class,
+        Entity::class => EntityPolicy::class,
+        Cost::class => CostPolicy::class
     ];
 
     /**

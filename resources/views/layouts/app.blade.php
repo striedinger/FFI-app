@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>FFI Caribe</title>
+    <title>FFI Caribe - @yield('title')</title>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
@@ -36,6 +36,8 @@
    <link rel="stylesheet" href="{{ URL::asset('assets/css/sweetalert2/sweetalert2.css') }}">
 
    <link rel="stylesheet" href="{{ URL::asset('assets/css/datetimepicker/datetimepicker.css') }}">
+
+   <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap-tagsinput/bootstrap-tagsinput.css') }}">
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -109,9 +111,9 @@
                         <li>
                             <a href="{{ url('/companies') }}"><i class="fa fa-building fa-fw"></i> Empresas</a>
                         </li>
-                        {{--<li>
+                        <li>
                             <a href="{{ url('/projects') }}"><i class="fa fa-book fa-fw"></i> Proyectos</a>
-                        </li>--}}
+                        </li>
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#appointments"><i class="fa fa-fw fa-calendar"></i> Citas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level" id="appointments">
@@ -162,6 +164,8 @@
     <script src="{{ URL::asset('assets/js/morrisjs/morris.min.js') }}"></script>
 
     <script src="{{ URL::asset('assets/js/sweetalert2/sweetalert2.min.js') }}"></script>
+
+    <script src="{{ URL::asset('assets/js/bootstrap-tagsinput/bootstrap-tagsinput.min.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ URL::asset('assets/js/sb-admin-2.js') }}"></script>

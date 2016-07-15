@@ -29,7 +29,7 @@ class ProjectCommentController extends Controller
     				'comment' => $request->comment
     			]);
     			$request->session()->flash('status', 'Su comentario ha sido guardado');
-    			return redirect('/projects/view/' . $project->id);
+    			return redirect('/projects/view/' . $project->id . '#comments');
     		}else{
     			abort(403, "Usuario no autorizado");
     		}
@@ -43,7 +43,7 @@ class ProjectCommentController extends Controller
             $this->authorize('destroy', $comment);
             $comment->delete();
             $request->session()->flash('status', 'Su comentario ha sido eliminado');
-            return redirect('/projects/view/' . $comment->project_id);
+            return redirect('/projects/view/' . $comment->project_id . '#comments');
         }else{
             abort(404);
         }

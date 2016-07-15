@@ -13,20 +13,36 @@ use App\Repositories\CompanyRepository;
 
 use App\Repositories\TermRepository;
 
+use App\Repositories\ProductRepository;
+
+use App\Repositories\ActivityRepository;
+
+use App\Repositories\EntityRepository;
+
+use App\Repositories\CostCategoryRepository;
+
+use App\Repositories\CostRepository;
+
 class ProjectController extends Controller
 {
 
 	protected $projects;
 	protected $terms;
 	protected $companies;
+    protected $products;
 
-	public function __construct(ProjectRepository $projects, TermRepository $terms, CompanyRepository $companies){
+	public function __construct(ProjectRepository $projects, TermRepository $terms, CompanyRepository $companies, ProductRepository $products, ActivityRepository $activities, EntityRepository $entities, CostCategoryRepository $costCategories, CostRepository $costs){
 
 		$this->middleware('auth');
 
 		$this->projects = $projects; 
 		$this->terms = $terms; 
 		$this->companies = $companies; 
+        $this->products = $products;
+        $this->activities = $activities;
+        $this->entities = $entities;
+        $this->costCategories = $costCategories;
+        $this->costs = $costs;
 	}
 
 	public function index(Request $request){
@@ -43,8 +59,16 @@ class ProjectController extends Controller
     public function view(Request $request, $id){
         if($project = $this->projects->forId($id)){
             $this->authorize('view', $project);
+            $products = $this->products->forProject($project);
+            $entities = $this->entities->allForCompany($project->company);
+            $costCategories = $this->costCategories->all();
+            $costs = $this->costs->forProject($project);
             return view('projects.view', [
-                'project' => $project
+                'project' => $project,
+                'products' => $products,
+                'entities' => $entities,
+                'costCategories' => $costCategories,
+                'costs' => $costs
             ]);
         }else{
             abort(404);

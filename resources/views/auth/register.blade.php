@@ -1,5 +1,9 @@
 @extends('layouts.fullscreen')
 
+@section('title')
+    Registrese
+@endsection
+
 @section('content')
 <div>
     <div class="row">

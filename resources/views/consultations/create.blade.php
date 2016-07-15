@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
+@section('title')
+    Crear Sesión de Citas
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{ url('/consultations') }}">Sesiones de Citas</a></li>
-    <li class="active">Crear Sesion de Citas</li>
+    <li class="active">Crear Sesión de Citas</li>
 </ol>
 <div class="panel panel-default">
 	<div class="panel-heading">
-		Crear Sesion de Citas
+		Crear Sesión de Citas
 	</div>
 	<div class="panel-body">
 		<form method="post">

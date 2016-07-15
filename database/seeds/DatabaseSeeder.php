@@ -52,6 +52,9 @@ class RolesTableSeeder extends Seeder{
 class UsersTableSeeder extends Seeder{
     public function run(){
         DB::table('users')->delete();
+        User::table(['id' => 1, 'name' => 'Administrador', 'email' => 'fficaribe@gmail.com', 'password' => Hash::make('qwerty'), 'state_id' => 1, 'role_id' => 1]);
+        User::table(['id' => 1, 'name' => 'Asistente', 'email' => 'asistente@hotmail.com', 'password' => Hash::make('qwerty'), 'state_id' => 1, 'role_id' => 2]);
+        User::table(['id' => 1, 'name' => 'Empresario', 'email' => 'empresario@hotmail.com', 'password' => Hash::make('qwerty'), 'state_id' => 1, 'role_id' => 5]);
     }
 }
 

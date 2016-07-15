@@ -85,9 +85,9 @@ Route::group(['middleware' => ['web']], function () {
 
 	//Project Comments
 
-	Route::post('projects/comment/{id}', 'ProjectCommentController@create');
+	Route::post('/projects/comment/{id}', 'ProjectCommentController@create');
 
-	Route::delete('projects/comment/{id}', 'ProjectCommentController@destroy');
+	Route::delete('/projects/comment/{id}', 'ProjectCommentController@destroy');
 
 	//Consultations
 
@@ -160,5 +160,47 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/appointments/update/{id}', 'AppointmentController@update');
 
 	Route::post('/appointments/update/{id}', 'AppointmentController@update');
+
+	//Productos
+
+	Route::post('/products/create/{id}', 'ProductController@create');
+
+	Route::get('/products/update/{id}', 'ProductController@update');
+
+	Route::post('/products/update/{id}', 'ProductController@update');
+
+	Route::delete('/products/{id}', 'ProductController@destroy');
+
+	//Actividades
+
+	Route::post('/activities/create', 'ActivityController@create');
+
+	Route::get('/activities/update/{id}', 'ActivityController@update');
+
+	Route::post('/activities/update/{id}', 'ActivityController@update');
+
+	Route::delete('/activities/{id}', 'ActivityController@destroy');	
+
+	//Entities
+
+	Route::get('/entities/create/{id}', 'EntityController@create');
+
+	Route::post('/entities/create/{id}', 'EntityController@create');
+
+	Route::get('/entities/update/{id}', 'EntityController@update');
+
+	Route::post('/entities/update/{id}', 'EntityController@update');
+
+	Route::delete('/entities/{id}', 'EntityController@destroy');
+
+	//Costs
+
+	Route::post('/costs/create/{id}', 'CostController@create');
+
+	Route::get('/costs/update/{id}', 'CostController@update');
+
+	Route::post('/costs/update/{id}', 'CostController@update');
+
+	Route::delete('/costs/{id}', 'CostController@destroy');
 
 });

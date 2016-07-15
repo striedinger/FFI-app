@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Inicio
+@endsection
+
 @section('content')
 <div>
     @if (Auth::user()->isAdmin())
@@ -73,20 +77,14 @@
     </div>
     @endif
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Inicio</div>
-
                 <div class="panel-body">
-                    <p><strong>Actualización 05/25/2016: Se ha deshabilitado la creación y actualización de los instrumentos ICAi y Miindex debido a que se ha agotado el plazo para diligenciarlos.
-                    {{--Se ha vencido el plazo para llenar los instrumentos ICAi y Miindex, ya no podrán crearse nuevos o actualizar existentes.--}} </strong></p><br>
                     <p>Bienvenido a la plataforma de gestión de proyectos del Fondo de Fomento a la Innovación y Desarrollo Tecnológico en las Empresas (FFI Caribe).</p>
-                    <p>Comience por registrar su empresa en la pestaña “Empresas”, luego llene la siguiente información:</p>
-                    <ul>
-                        {{--<li><p onclick="swal('¿Modelo de Negocios Canvas?', 'Es una herramienta de análisis donde quedan reflejadas las fortalezas y debilidades de un modelo de negocio, proveyendo una visión global de este de manera rápida y sencilla.')">Modelo de Negocios Canvas <i class=" glyphicon glyphicon-question-sign"></i></p></li>--}}
-                        <li><p onclick="swal('¿ICAi?', 'El Instrumento de Caracterización de la Actividad Innovadora (ICAI) permite identificar los insumos, productos, resultados y comportamientos derivados de la actividad innovadora de las empresas evaluadas.')">Instrumento ICAi <i class=" glyphicon glyphicon-question-sign"></i></p></li>
-                        <li><p onclick="swal('¿Miindex?', 'Es un instrumento diseñado para medir la percepción interna de la cultura de innovación.')">Instrumento Miindex <i class=" glyphicon glyphicon-question-sign"></i></p></li>
-                    </ul>
+                    <p>En esta página encontrara siempre las últimas noticias, instrucciones y progreso personalizado de su estado en la convocatoria. Asegúrese de revisar frecuentemente.</p>
+                    <hr>
+                    <p><strong>Contacto</strong></p>
                     <p>Si tiene cualquier duda comuníquese con uno de nuestros asesores:</p>
                     <ul>
                         <li>Nicolás E. Gómez Jacome - <a href="mailto:njacome@uninorte.edu.co">njacome@uninorte.edu.co</a></li>
@@ -96,20 +94,32 @@
                         <li>Ana Marcela Velaidez - <a href="mailto:avelaidez@uninorte.edu.co">avelaidez@uninorte.edu.co</a></li>
                     </ul>
                     <p>O nos puede contactar a través de nuestro correo general: <a href="mailto:fficaribe@uninorte.edu.co">fficaribe@uninorte.edu.co</a></p>
-                    <p>En esta página encontrara siempre las últimas noticias, instrucciones y progreso personalizado de su estado en la convocatoria. Asegúrese de revisar frecuentemente.</p>
+                    <hr>
+                    <p><strong>Apoyan</strong></p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img src="{{ URL::asset('assets/img/sena.png') }}" style="width:100%">
+                        </div>
+                        <div class="col-xs-4">
+                            <img src="{{ URL::asset('assets/img/sennova.png') }}" style="width:100%">
+                        </div>
+                        <div class="col-xs-4">
+                            <img src="{{ URL::asset('assets/img/uninorte-cesi.png') }}" style="width:100%">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-4">
-            <img src="{{ URL::asset('assets/img/sena.png') }}" style="width:100%">
-        </div>
-        <div class="col-xs-4">
-            <img src="{{ URL::asset('assets/img/sennova.png') }}" style="width:100%">
-        </div>
-        <div class="col-xs-4">
-            <img src="{{ URL::asset('assets/img/uninorte-cesi.png') }}" style="width:100%">
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Noticias
+                </div>
+                <div class="panel-body">
+                    <p><strong>05/25/2016:</strong> Se ha deshabilitado la creación y actualización de los instrumentos ICAi y Miindex debido a que se ha agotado el plazo para diligenciarlos.
+                    {{--Se ha vencido el plazo para llenar los instrumentos ICAi y Miindex, ya no podrán crearse nuevos o actualizar existentes.--}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

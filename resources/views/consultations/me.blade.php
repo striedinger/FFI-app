@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Mis Sesiones de Citas
+@endsection
+
 @section('content')
 @if(Auth::user()->isAdmin())
 <div class="form-group">

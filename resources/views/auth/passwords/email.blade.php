@@ -1,5 +1,10 @@
 @extends('layouts.fullscreen')
 
+
+@section('title')
+    Restablecer Contraseña
+@endsection
+
 <!-- Main Content -->
 @section('content')
 <div>

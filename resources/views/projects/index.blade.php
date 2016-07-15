@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Proyectos
+@endsection
+
 @section('content')
 <div>
     <div class="panel panel-default">
@@ -8,7 +12,7 @@
         </div>
         <div class="panel-body">
             @if (count($projects)==0)
-            <p>No hay proyectos registrados.</p>
+            <p class="text-center">No hay proyectos registrados.</p>
             @endif
             @if (count($projects) > 0)
             @if(Auth::user()->isAdmin())

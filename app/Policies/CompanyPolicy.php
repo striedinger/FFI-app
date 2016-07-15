@@ -13,12 +13,16 @@ class CompanyPolicy
     use HandlesAuthorization;
 
     public function update(User $user, Company $company){
-        if($user->isSuperAdmin()){
+        if($user->isAdmin()){
             return true;
         }else{
             return $user->id == $company->user_id;
         }
      }
+
+     public function create_entity(User $user, Company $company){
+        return $user->id == $company->user->id;
+    }
 
      public function search(User $user){
         return $user->isAdmin();

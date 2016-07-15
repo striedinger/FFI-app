@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Buscar Proyecto
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{ url('/projects') }}">Proyectos</a></li>

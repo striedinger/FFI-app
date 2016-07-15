@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('title')
+    Miindex
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/companies') }}">Empresas</a></li>
   <li><a href="{{ url('/companies') . '/view/' . $imi->company->id }}">{{ $imi->company->name }}</a></li>
-  <li class="active">Editar Miindex</li>
+  <li class="active">Miindex</li>
 </ol>
 <div>
 	<div>

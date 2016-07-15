@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Editar Cita
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{ url('/appointments') }}">Citas</a></li>

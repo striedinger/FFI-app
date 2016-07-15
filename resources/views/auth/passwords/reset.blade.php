@@ -1,5 +1,9 @@
 @extends('layouts.fullscreen')
 
+@section('title')
+    Restablecer Contraseña
+@endsection
+
 @section('content')
 <div>
     <div class="row">

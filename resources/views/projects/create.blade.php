@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Crear Proyecto
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{ url('/projects') }}">Proyectos</a></li>
@@ -33,10 +37,10 @@
                         @endif
 					</div>
 					<div class="form-group">
-						<label>Monto Solicitado</label>
+						<label>Valor del Proyecto</label>
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input type="text" class="form-control" name="amount" placeholder="Monto Solicitado" value="{{ old('amount') }}">
+							<input type="text" class="form-control" name="amount" placeholder="Valor del Proyecto" value="{{ old('amount') }}">
 							<span class="input-group-addon">COP</span>
 						</div>
 						@if ($errors->has('amount'))

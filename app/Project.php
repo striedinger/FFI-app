@@ -41,4 +41,22 @@ class Project extends Model
         return $this->hasMany(ProjectComment::class)->orderBy('created_at', 'desc');
     }
 
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+
+    public function costs(){
+        return $this->hasMany(Cost::class);
+    }
+
+    protected static function boot(){
+        parent::boot();
+
+        static::deleting(function($project){
+            $project->products()->delete();
+            $project->comments()->delete();
+            $project->costs()->delete();
+        });
+    }
+
 }

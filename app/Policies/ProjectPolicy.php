@@ -12,12 +12,28 @@ class ProjectPolicy
 {
     use HandlesAuthorization;
 
+    public function create_product(User $user, Project $project){
+        return $user->id == $project->user_id;
+    }
+
+    public function create_activity(User $user, Project $project){
+        return $user->id == $project->user_id;
+    }
+
+    public function create_entity(User $user, Project $project){
+        return $user->id == $project->company->user->id;
+    }
+
+    public function create_cost(User $user, Project $project){
+        return $user->id == $project->user_id;
+    }
+
     public function destroy(User $user, Project $project){
         return $user->id == $project->user_id;
     }
 
     public function update(User $user, Project $project){
-        if($user->isSuperAdmin()){
+        if($user->isAdmin()){
             return true;
         }else{
             return $user->id == $project->user_id;

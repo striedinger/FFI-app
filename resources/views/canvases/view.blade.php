@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Canvas
+@endsection
+
 @section('content')
 <style type="text/css">
 	#bizcanvas {

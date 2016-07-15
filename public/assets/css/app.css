@@ -92,6 +92,10 @@ textarea{
   resize: vertical;
 }
 
+.bootstrap-tagsinput {
+  width: 100%;
+}
+
 /**Custom panel with nav tabs**/
 
 

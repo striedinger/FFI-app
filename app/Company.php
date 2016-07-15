@@ -57,4 +57,8 @@ class Company extends Model
     public function icai(){
         return $this->hasMany(Icai::class);
     }
+
+    public function entities(){
+        return $this->hasMany(Entity::class);
+    }
 }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Crear Miindex
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/companies') }}">Empresas</a></li>

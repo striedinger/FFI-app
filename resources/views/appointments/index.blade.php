@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Citas
+@endsection
+
 @section('content')
 <div>
     <div class="panel panel-default">

@@ -14,12 +14,16 @@ class CreateEntitiesTable extends Migration
     {
         Schema::create('entities', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('project_id')->unsigned();
             $table->string('name');
+            $table->string('nit');
+            $table->string('contact_name');
+            $table->string('contact_phone');
+            $table->string('contact_email');
+            $table->integer('company_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Buscar Usuario
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{ url('/users') }}">Usuarios</a></li>

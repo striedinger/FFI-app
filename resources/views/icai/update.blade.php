@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('title')
+    ICAi
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{ url('/companies') }}">Empresas</a></li>
     <li><a href="{{ url('/companies') . '/view/' . $icai->company->id }}">{{ $icai->company->name }}</a></li>
-    <li class="active">Actualizar ICAi</li>
+    <li class="active">ICAi</li>
 </ol>
 <div>
     <div>

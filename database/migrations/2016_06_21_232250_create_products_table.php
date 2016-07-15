@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('state');
+            $table->string('state')->default('Planeación');
             $table->integer('project_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

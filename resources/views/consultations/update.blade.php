@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
+@section('title')
+    Editar Sesión de Citas
+@endsection
+
 @section('content')
 <ol class="breadcrumb">
     <li><a href="{{ url('/consultations') }}">Sesiones de Citas</a></li>
-    <li><a href="{{ url('/consultations') . '/view/' . $consultation->id }}">Sesion de Citas</a></li>
-    <li class="active">Editar Sesion de Citas</li>
+    <li><a href="{{ url('/consultations') . '/view/' . $consultation->id }}">Sesión de Citas</a></li>
+    <li class="active">Editar Sesión de Citas</li>
 </ol>
 <div class="panel panel-default">
 	<div class="panel-heading">
-		Actualizar Sesion de Citas
+		Actualizar Sesión de Citas
 	</div>
 	<div class="panel-body">
 		<form method="post">

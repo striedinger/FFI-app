@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Crear ACAP
+@endsection
+
 @section('content')
 <div>
 	<div>

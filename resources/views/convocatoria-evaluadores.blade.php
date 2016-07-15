@@ -1,5 +1,9 @@
 @extends('layouts.app-nosidebar')
 
+@section('title')
+    Registro Convocatoria Evaluadores
+@endsection
+
 @section('content')
 <div class="content center-block" style="padding-top:10px;">
 	<div class="row">
